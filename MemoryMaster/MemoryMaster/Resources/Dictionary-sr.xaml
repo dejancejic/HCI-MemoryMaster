@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <System:String x:Key="startGame">Počni igru</System:String>
+    <System:String x:Key="newLevel">Dodaj Nivo</System:String>
+    <System:String x:Key="myLevel">Moji nivoi</System:String>
+</ResourceDictionary>

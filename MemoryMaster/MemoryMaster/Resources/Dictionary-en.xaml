@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <System:String x:Key="startGame">Start Game</System:String>
+    <System:String x:Key="newLevel">Add Level</System:String>
+    <System:String x:Key="myLevel">My levels</System:String>
+</ResourceDictionary>

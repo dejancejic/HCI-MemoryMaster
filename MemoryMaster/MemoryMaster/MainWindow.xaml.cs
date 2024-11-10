@@ -69,5 +69,10 @@ namespace MemoryMaster
         private void SecondWindow_Closed(object sender, System.EventArgs e) { 
             this.Show();
         }
+
+        private void StartGameBtnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
