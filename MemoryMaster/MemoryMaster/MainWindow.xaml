@@ -3,10 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MemoryMaster"
         mc:Ignorable="d"
-        Title="MemoryMaster" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MemoryMaster" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/backgroundImage.jpg"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ImageButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background.ImageSource}" Stretch="Fill"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="339*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="startGameBtn" Content="{DynamicResource startGame}" HorizontalAlignment="Left" Margin="114,74,0,0" VerticalAlignment="Top" Width="120" Height="32" Style="{StaticResource RoundedButtonStyle}" Background="#FF79C5FF" FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold" Grid.Column="1" />
+        <Button x:Name="addLevelBtn" Content="{DynamicResource newLevel}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="32" Style="{StaticResource RoundedButtonStyle}" Background="#FF79C5FF" FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold" Grid.Column="1" Margin="114,169,0,0" />
+        <Label Content="Label" HorizontalAlignment="Left" Height="20" Margin="711,288,0,0" VerticalAlignment="Top" Width="1" Grid.Column="1"/>
+        <Button x:Name="enBtn" Tag="en" Style="{StaticResource ImageButtonStyle}" HorizontalAlignment="Left" Margin="313,278,0,0" VerticalAlignment="Top" Height="30" Width="38" RenderTransformOrigin="0.592,0.115" Click="languageButton_Click" Grid.Column="1">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/englishIcon.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="srBtn" Tag="sr" Style="{StaticResource ImageButtonStyle}" HorizontalAlignment="Left" Margin="356,279,0,0" VerticalAlignment="Top" Height="29" Width="38" Click="languageButton_Click" Grid.Column="1" RenderTransformOrigin="2.37,3.774">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/serbianIcon.png"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="infoBtn" Tag="info" Style="{StaticResource ImageButtonStyle}" HorizontalAlignment="Left" Margin="19,284,0,0" VerticalAlignment="Top" Height="22" Width="30" RenderTransformOrigin="0.592,0.115" Click="infoBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Resources/infoIcon.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="32" Style="{StaticResource RoundedButtonStyle}" Background="#FF79C5FF" FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold" Margin="114,122,0,0" Grid.Column="1" RenderTransformOrigin="1.05,-0.813" />
 
     </Grid>
 </Window>

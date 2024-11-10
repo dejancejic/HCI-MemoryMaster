@@ -8,4 +8,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\backgroundImage.jpg" />
+    <None Remove="Resources\englishIcon.png" />
+    <None Remove="Resources\infoIcon.png" />
+    <None Remove="Resources\serbianIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\backgroundImage.jpg" />
+    <Resource Include="Resources\englishIcon.png" />
+    <Resource Include="Resources\infoIcon.png" />
+    <Resource Include="Resources\serbianIcon.png" />
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,6 @@ C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\Memo
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster_MarkupCompile.cache
-C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster_MarkupCompile.lref
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster.g.resources
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster.GeneratedMSBuildEditorConfig.editorconfig
@@ -19,3 +18,9 @@ C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\Memo
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster.pdb
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster.genruntimeconfig.cache
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\ref\MemoryMaster.dll
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Resources\Dictionary-en.baml
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\MemoryMaster_MarkupCompile.lref
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\App.baml
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Resources\Dictionary-sr.baml
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\AppInfoPage.g.cs
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\AppInfoPage.baml
