@@ -5,4 +5,13 @@
     <System:String x:Key="startGame">Počni igru</System:String>
     <System:String x:Key="newLevel">Dodaj Nivo</System:String>
     <System:String x:Key="myLevel">Moji nivoi</System:String>
+    <System:String x:Key="chooseLevel">MemoryMaster - Nivoi</System:String>
+    <System:String x:Key="chooseLevelLbl">Izaberite nivo:</System:String>
+    <System:String x:Key="InfoLevel">Podaci o nivou:</System:String>
+    <System:String x:Key="levelLabel">Nivo</System:String>
+    <System:String x:Key="play">Igraj</System:String>
+    <System:String x:Key="mainMenu">Glavni Meni</System:String>
+    <System:String x:Key="highScore">Najbolji Rezultat:</System:String>
+    <System:String x:Key="bestTime">Preostalo Vrijeme:</System:String>
+    <System:String x:Key="addLevelTitle">MemoryMaster - Dodaj Novi Nivo</System:String>
 </ResourceDictionary>

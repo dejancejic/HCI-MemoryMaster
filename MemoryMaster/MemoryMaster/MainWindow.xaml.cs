@@ -58,13 +58,16 @@ namespace MemoryMaster
             }
 
         }
+        private void NavigateNextPage(Window window)
+        {
+            window.Closed += SecondWindow_Closed;
+            window.Show(); this.Hide();
+            this.Hide();
+        }
 
         private void infoBtn_Click(object sender, RoutedEventArgs e)
         {
-            AppInfoPage secondWindow = new AppInfoPage(); 
-            secondWindow.Closed += SecondWindow_Closed; 
-            secondWindow.Show(); this.Hide();
-            this.Hide();
+            NavigateNextPage(new AppInfoPage());
         }
         private void SecondWindow_Closed(object sender, System.EventArgs e) { 
             this.Show();
@@ -72,7 +75,12 @@ namespace MemoryMaster
 
         private void StartGameBtnClick(object sender, RoutedEventArgs e)
         {
+            NavigateNextPage(new ChooseLevelPage());
+        }
 
+        private void addLevelBtnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateNextPage(new AddLevelPage());
         }
     }
 }

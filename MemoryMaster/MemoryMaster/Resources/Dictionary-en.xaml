@@ -5,4 +5,13 @@
     <System:String x:Key="startGame">Start Game</System:String>
     <System:String x:Key="newLevel">Add Level</System:String>
     <System:String x:Key="myLevel">My levels</System:String>
+    <System:String x:Key="chooseLevel">MemoryMaster - Levels</System:String>
+    <System:String x:Key="chooseLevelLbl">Choose level:</System:String>
+    <System:String x:Key="InfoLevel">Level info:</System:String>
+    <System:String x:Key="levelLabel">Level</System:String>
+    <System:String x:Key="play">Play</System:String>
+    <System:String x:Key="mainMenu">Main Menu</System:String>
+    <System:String x:Key="highScore">High Score:</System:String>
+    <System:String x:Key="bestTime">Time Left:</System:String>
+    <System:String x:Key="addLevelTitle">MemoryMaster - Add New Level</System:String>
 </ResourceDictionary>

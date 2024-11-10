@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\AddLevelPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\AppInfoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ChooseLevelPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +21,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Pages\AddLevelPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\AppInfoPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ChooseLevelPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Dictionary-en.xaml">
