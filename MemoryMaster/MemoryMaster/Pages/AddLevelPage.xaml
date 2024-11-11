@@ -5,15 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-        Title="{DynamicResource addLevelTitle}" Height="350" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="{DynamicResource addLevelTitle}" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelsImage.jpg"/>
     </Window.Background>
+    <Window.Resources>
+        <Style x:Key="PickImageButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Blue" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="28" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Background" Value="#FF56569A" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="15">
+                            <Image Source="pack://application:,,,/Resources/deleteIcon.png" Stretch="Uniform"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="43*"/>
+                                <ColumnDefinition Width="32*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Grid.ColumnSpan="2" Margin="0,0,-16,0"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Grid.ColumnSpan="2"/>
+                            <TextBlock x:Name="PlaceholderText" Text="{DynamicResource enterLevelName}" Foreground="Gray" Margin="5,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="Collapsed" Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="97*"/>
         </Grid.ColumnDefinitions>
+        <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="14,31,370,292" Grid.Column="1" TextChanged="LevelNameTextChanged"/>
+        <Button x:Name="pickImageBtn" Style="{StaticResource PickImageButtonStyle}" Content="{DynamicResource pickNewImage}" HorizontalAlignment="Left" Height="35" Margin="337,305,0,0" VerticalAlignment="Top" Width="173" Background="#FF394ED6" FontFamily="Comic Sans MS" FontSize="14" Click="PickImageBtnClick" Foreground="White" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="mainMenuBtn" Style="{StaticResource PickImageButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left" Height="35" Margin="15,305,0,0" VerticalAlignment="Top" Width="116" Background="#FFEE2A13" FontFamily="Comic Sans MS" FontSize="17" Click="MainMenuBtnClick" Foreground="White" FontWeight="Bold" Grid.Column="1"/>
+        <Button x:Name="addLevelBtn" Style="{StaticResource PickImageButtonStyle}" Content="{DynamicResource addLevel}" HorizontalAlignment="Left" Height="35" Margin="15,112,0,0" VerticalAlignment="Top" Width="197" Background="#FF394ED6" FontFamily="Comic Sans MS" FontSize="15" Click="AddLevelBtnClick" Foreground="White" FontWeight="Bold" Grid.Column="1"/>
+        <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,50,0,0" Width="250" Height="250" Grid.Column="1">
+            <Grid>
+                <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,-20,0,18"/>
+                <Label x:Name="levelNumberLbl" Content="{DynamicResource imagesPicked}" Margin="50,-15,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,20,0,20">
+                    <StackPanel Name="ImagesStackPanel">
 
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

@@ -14,4 +14,14 @@
     <System:String x:Key="highScore">High Score:</System:String>
     <System:String x:Key="bestTime">Time Left:</System:String>
     <System:String x:Key="addLevelTitle">MemoryMaster - Add New Level</System:String>
+    <System:String x:Key="enterLevelName">Enter level name</System:String>
+    <System:String x:Key="imagesPicked">Picked Images</System:String>
+    <System:String x:Key="levelNameTextSize">Level name  mustn't be larger than 20 characters!</System:String>
+    <System:String x:Key="errorText">Error</System:String>
+    <System:String x:Key="pickNewImage">Pick New Image</System:String>
+    <System:String x:Key="addLevel">Add Level</System:String>
+    <System:String x:Key="levelNameEmpty">Level name mustn't be empty!</System:String>
+    <System:String x:Key="selectCorrectFileType">Please select a valid image file (jpg, jpeg, png)!</System:String>
+    <System:String x:Key="imageAlreadyExists">Image is already added!</System:String>
+    <System:String x:Key="levelAdded">Level is successfully added!</System:String>
 </ResourceDictionary>
