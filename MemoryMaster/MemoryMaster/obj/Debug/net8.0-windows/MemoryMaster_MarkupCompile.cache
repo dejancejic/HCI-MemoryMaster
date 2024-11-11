@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\App.xaml
-61641628058
+71923458370
 
-9197099109
+111580081374
 198915248976
-MainWindow.xaml;Pages\AddLevelPage.xaml;Pages\AppInfoPage.xaml;Pages\ChooseLevelPage.xaml;Resources\Dictionary-en.xaml;Resources\Dictionary-sr.xaml;
+MainWindow.xaml;Pages\AddLevelPage.xaml;Pages\AppInfoPage.xaml;Pages\ChooseLevelPage.xaml;Pages\LevelPage.xaml;Resources\Dictionary-en.xaml;Resources\Dictionary-sr.xaml;
 
 False
 

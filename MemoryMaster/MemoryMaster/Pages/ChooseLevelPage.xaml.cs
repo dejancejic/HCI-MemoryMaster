@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MemoryMaster.Model;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,29 +13,45 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MemoryMaster.Pages
 {
-    /// <summary>
-    /// Interaction logic for ChooseLevelPage.xaml
-    /// </summary>
+  
     public partial class ChooseLevelPage : Window
     {
+
+        List<LevelModel> levels = new List<LevelModel>();
+        List<UserScoreModel> userScores = new List<UserScoreModel>();
+        int selectedLevelIndex=0;
         public ChooseLevelPage()
         {
             InitializeComponent();
+
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
+            string filePath = Path.Combine(projectDirectory, "Resources", "Data");
+            levels = AddLevelPage.ReadLevelData(filePath+"\\Levels.txt");
+            userScores = AddLevelPage.ReadUserData(filePath+"\\UserData.txt");
+
+            resultLbl.Content = userScores[0].HighScore;
+            timeLeftLbl.Content = userScores[0].BestTime;
+            levelNameLbl.Content = userScores[0].Name;
         }
 
         private void showLevelInfoBtnClick(object sender, RoutedEventArgs e)
         {
             String text = ((Button)sender).Content.ToString();
-            
+            int index = int.Parse(((Button)sender).Tag.ToString())-1;
+
             levelLbl.Content= text;
+            resultLbl.Content = userScores[index].HighScore;
+            timeLeftLbl.Content = userScores[index].BestTime;
+            levelNameLbl.Content = userScores[index].Name;
+            selectedLevelIndex = index;
 
             Button clickedButton = sender as Button; 
             
-             Level1Btn.Style = (Style)FindResource("RoundedButtonStyle"); 
+            Level1Btn.Style = (Style)FindResource("RoundedButtonStyle"); 
             Level2Btn.Style = (Style)FindResource("RoundedButtonStyle");
             Level3Btn.Style = (Style)FindResource("RoundedButtonStyle");
             Level4Btn.Style = (Style)FindResource("RoundedButtonStyle");
@@ -51,9 +70,20 @@ namespace MemoryMaster.Pages
             this.Close();
         }
 
-        private void playLevelBtnClick(object sender, RoutedEventArgs e)
+        private void PlayLevelBtnClick(object sender, RoutedEventArgs e)
         {
-
+            NavigateNextPage(new LevelPage(levelInfo: levels[selectedLevelIndex], 
+                userScores[selectedLevelIndex]));
+        }
+        private void NavigateNextPage(Window window)
+        {
+            window.Closed += SecondWindow_Closed;
+            window.Show(); this.Hide();
+            this.Hide();
+        }
+        private void SecondWindow_Closed(object sender, System.EventArgs e)
+        {
+            this.Show();
         }
     }
 }

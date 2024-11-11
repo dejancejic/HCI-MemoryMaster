@@ -13,7 +13,9 @@
     <None Remove="Resources\deleteIcon.png" />
     <None Remove="Resources\englishIcon.png" />
     <None Remove="Resources\infoIcon.png" />
+    <None Remove="Resources\levelBackground.jpg" />
     <None Remove="Resources\levelsImage.jpg" />
+    <None Remove="Resources\logoIcon.png" />
     <None Remove="Resources\serbianIcon.png" />
   </ItemGroup>
 
@@ -22,7 +24,9 @@
     <Resource Include="Resources\deleteIcon.png" />
     <Resource Include="Resources\englishIcon.png" />
     <Resource Include="Resources\infoIcon.png" />
+    <Resource Include="Resources\levelBackground.jpg" />
     <Resource Include="Resources\levelsImage.jpg" />
+    <Resource Include="Resources\logoIcon.png" />
     <Resource Include="Resources\serbianIcon.png" />
   </ItemGroup>
 

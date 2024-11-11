@@ -12,7 +12,7 @@
     <System:String x:Key="play">Igraj</System:String>
     <System:String x:Key="mainMenu">Glavni Meni</System:String>
     <System:String x:Key="highScore">Najbolji Rezultat:</System:String>
-    <System:String x:Key="bestTime">Preostalo Vrijeme:</System:String>
+    <System:String x:Key="bestTime">Najbolje Vrijeme:</System:String>
     <System:String x:Key="addLevelTitle">MemoryMaster - Dodaj Novi Nivo</System:String>
     <System:String x:Key="enterLevelName">Unesite ime nivoa</System:String>
     <System:String x:Key="imagesPicked">Izabrane Slike</System:String>
@@ -21,7 +21,14 @@
     <System:String x:Key="pickNewImage">Izaberite Novu Sliku</System:String>
     <System:String x:Key="addLevel">Dodaj Nivo</System:String>
     <System:String x:Key="levelNameEmpty">Ime nivoa ne smije biti prazno!</System:String>
+    <System:String x:Key="notEnoughImages">Dodajte bar 2 slike!</System:String>
+    <System:String x:Key="enoughImages">Maksimalan broj slika je 12!</System:String>
     <System:String x:Key="selectCorrectFileType">Izabrani fajlovi moraju imati jednu od ekstenzija: jpg, jpeg ili png!</System:String>
     <System:String x:Key="imageAlreadyExists">Slika je već dodana!</System:String>
     <System:String x:Key="levelAdded">Novi nivo je uspješno dodan!</System:String>
+    <System:String x:Key="errorInFile">Greška pri čitanju fajla!</System:String>
+    <System:String x:Key="errorWritingFile">Greška pri upisu u fajl!</System:String>
+    <System:String x:Key="levelAlreadyExists">Nivo sa tim imenom već postoji!</System:String>
+    <System:String x:Key="score">Rezultat:</System:String>
+    <System:String x:Key="time">Vrijeme:</System:String>
 </ResourceDictionary>

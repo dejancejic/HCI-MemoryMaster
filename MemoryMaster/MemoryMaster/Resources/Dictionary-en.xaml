@@ -8,11 +8,13 @@
     <System:String x:Key="chooseLevel">MemoryMaster - Levels</System:String>
     <System:String x:Key="chooseLevelLbl">Choose level:</System:String>
     <System:String x:Key="InfoLevel">Level info:</System:String>
+    <System:String x:Key="score">Score:</System:String>
     <System:String x:Key="levelLabel">Level</System:String>
     <System:String x:Key="play">Play</System:String>
     <System:String x:Key="mainMenu">Main Menu</System:String>
+    <System:String x:Key="time">Time:</System:String>
     <System:String x:Key="highScore">High Score:</System:String>
-    <System:String x:Key="bestTime">Time Left:</System:String>
+    <System:String x:Key="bestTime">Best Time:</System:String>
     <System:String x:Key="addLevelTitle">MemoryMaster - Add New Level</System:String>
     <System:String x:Key="enterLevelName">Enter level name</System:String>
     <System:String x:Key="imagesPicked">Picked Images</System:String>
@@ -21,7 +23,12 @@
     <System:String x:Key="pickNewImage">Pick New Image</System:String>
     <System:String x:Key="addLevel">Add Level</System:String>
     <System:String x:Key="levelNameEmpty">Level name mustn't be empty!</System:String>
+    <System:String x:Key="notEnoughImages">Please add at least 2 images!</System:String>
+    <System:String x:Key="enoughImages">Maximum number of images is 12!</System:String>
     <System:String x:Key="selectCorrectFileType">Please select a valid image file (jpg, jpeg, png)!</System:String>
     <System:String x:Key="imageAlreadyExists">Image is already added!</System:String>
     <System:String x:Key="levelAdded">Level is successfully added!</System:String>
+    <System:String x:Key="errorInFile">Error reading the file!</System:String>
+    <System:String x:Key="errorWritingFile">Error writing the file!</System:String>
+    <System:String x:Key="levelAlreadyExists">Level with that name already exists!</System:String>
 </ResourceDictionary>

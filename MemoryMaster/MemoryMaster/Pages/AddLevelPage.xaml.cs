@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using MemoryMaster.Utils;
 using MemoryMaster.Model;
+using System.Text.Json;
+
 namespace MemoryMaster.Pages
 {
     public partial class AddLevelPage : Window
@@ -29,7 +31,7 @@ namespace MemoryMaster.Pages
         {
             String text = ((TextBox)sender).Text.ToString();
 
-            if (text.Length > 20)
+            if (text.Length > 12)
             {
                 string message = (string)FindResource("levelNameTextSize");
                 string title = (string)FindResource("errorText");
@@ -139,21 +141,95 @@ namespace MemoryMaster.Pages
                 MessageBox.Show((string)FindResource("levelNameEmpty"),(string)FindResource("errorText"),MessageBoxButton.OK);
                 return;
             }
-
+            if (list.Count<2)
+            {
+                MessageBox.Show((string)FindResource("notEnoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
+                return;
+            }
+            if (list.Count == 20)
+            {
+                MessageBox.Show((string)FindResource("enoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
+                return;
+            }
             List<string> base64Strings = new List<string>();
+
 
             foreach(string s in list) { 
             
                 string base64= Base64EncoderDecorder.ImageToBase64(s);
                 base64Strings.Add(base64);
             }
-            int id = 0;
-            //TODO read the file for users levels!
+            int id = 1;
+            List<UserScoreModel> userData=new List<UserScoreModel>();
+            List<LevelModel> levels=new List<LevelModel>();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
+            string filePath = Path.Combine(projectDirectory, "Resources", "Data");
+            try
+            {
+                userData = ReadUserData(filePath+ "\\UserData.txt");
+                levels = ReadLevelData(filePath + "\\Levels.txt");
+
+            }catch(Exception ex) {
+
+                MessageBox.Show((string)FindResource("errorInFile")+ex.Message, (string)FindResource("errorText"), MessageBoxButton.OK);
+                return;
+            }
+            foreach(UserScoreModel user in userData) {
+                if (user.Name.Equals(textBox.Text))
+                {
+                    MessageBox.Show((string)FindResource("levelAlreadyExists"), (string)FindResource("errorText"), MessageBoxButton.OK);
+                    return;
+                }
+            }
+            if (userData.Count > 0) {
+                id = userData[userData.Count-1].Id+1;
+            }
 
             LevelModel model = new LevelModel(id,textBox.Text,base64Strings);
+            UserScoreModel score = new UserScoreModel(id, textBox.Text, "00:00,00",0.0);
+
+
+            try { 
+                userData.Add(score);
+                levels.Add(model);
+                string json=JsonSerializer.Serialize(userData);
+
+                WriteUserData(filePath+"\\UserData.txt", json);
+                json=JsonSerializer.Serialize(levels);
+                WriteUserData(filePath + "\\Levels.txt", json);
+            }
+            catch(Exception) {
+
+                MessageBox.Show((string)FindResource("errorWritingFile"),(string)FindResource("errorText"),MessageBoxButton.OK);
+                return;    
+            }
 
             MessageBox.Show((string)FindResource("levelAdded"), (string)FindResource("errorText"), MessageBoxButton.OK);
             this.Close();
         }
-    }     
+
+        public static List<UserScoreModel> ReadUserData(string filePath) 
+        {
+                string jsonString = File.ReadAllText(filePath);
+                List<UserScoreModel> userScores = JsonSerializer.Deserialize<List<UserScoreModel>>(jsonString)!;
+
+                return userScores;
+        }
+        public static List<LevelModel> ReadLevelData(string filePath)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            List<LevelModel> levels = JsonSerializer.Deserialize<List<LevelModel>>(jsonString)!;
+
+            return levels;
+        }
+        public static void WriteUserData(string filePath, string jsonString)
+        {
+                File.WriteAllText(filePath, jsonString);
+        }
+
+
+
+
+    }
 }
