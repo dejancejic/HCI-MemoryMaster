@@ -1,9 +1,11 @@
 ﻿using MemoryMaster.Model;
 using MemoryMaster.Utils;
 using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +27,8 @@ namespace MemoryMaster.Pages
         private DispatcherTimer uiTimer;
         private Stopwatch stopwatch;
         private bool isRunning;
+        private bool myLevel;
+        private int score=0;
         
         //if coordinates are taken the value will be true!
          Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
@@ -85,11 +89,12 @@ namespace MemoryMaster.Pages
         };
 
 
-        public LevelPage(LevelModel levelInfo, UserScoreModel scores)
+        public LevelPage(LevelModel levelInfo, UserScoreModel scores,bool myLevel=false)
         {
             InitializeComponent();
             this.levelInfo = levelInfo;
             this.scores = scores;
+            this.myLevel= myLevel;
             this.Title = "MemoryMaster - " + scores.Name;
 
             stopwatch = new Stopwatch();
@@ -136,27 +141,40 @@ namespace MemoryMaster.Pages
             stopwatch.Stop();
             uiTimer.Stop();
         }
+        private int idCard=0;
+        Dictionary<int, int> TAGS = new Dictionary<int, int>();
+        Dictionary<int, bool> TAGS_OPENED = new Dictionary<int, bool>();
+        private int countCorrect = 0;
+        
         private void CreateImagePanel()
         {
             Random random = new Random();
-
+          
                 foreach (string base64 in levelInfo.Base64Images)
                 {
-                    for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 2; i++)
                     {
 
-                        Border imageCard = new Border
-                        {
-                            Background = Brushes.White,
-                            CornerRadius = new CornerRadius(10),
-                            Width = 100,
-                            Height = 200,
+                    Border imageCard = new Border
+                    {
+                        Background = Brushes.White,
+                        CornerRadius = new CornerRadius(10),
+                        Width = 100,
+                        Height = 200,
+                        Tag = idCard,
                             BorderBrush = Brushes.Gray,
                             BorderThickness = new Thickness(1)
                         };
 
-                     
-                        Image imageControl = new Image
+                    TAGS[idCard] = i;
+                    TAGS_OPENED[idCard] = false;
+                   
+                    idCard++;
+                    imageCard.MouseLeftButtonUp += CardClickedEvent;
+
+
+
+                    Image imageControl = new Image
                         {
                             Width = 80,
                             Height = 180,
@@ -164,7 +182,6 @@ namespace MemoryMaster.Pages
                             Margin = new Thickness(10)
                         };
 
-                        //BitmapImage bitmapImage = Base64EncoderDecorder.Base64ToImage(base64);
                         BitmapImage bitmapImage = 
                         new BitmapImage(new Uri("pack://application:,,,/Resources/logoIcon.png"));
                     
@@ -198,12 +215,100 @@ namespace MemoryMaster.Pages
              
                     }
                 }
-            } 
+            }
+        private List<Border> OPENED_CARDS = new List<Border>();
+        private void CardClickedEvent(object sender, EventArgs e)
+        {
+            Border border = sender as Border;
+            if (OPENED_CARDS.Contains(border))
+            {
+                return;
+            }
+            if (OPENED_CARDS.Count <2)
+            {
+                OPENED_CARDS.Add(border);
+            }
             
+            Image imageControl = border.Child as Image;
+            int tag = (int)border.Tag;
+            int index = TAGS[tag];
+            if (TAGS_OPENED[tag] == true)
+            {
+                return;
+            }
+            TAGS_OPENED[tag] = true;
+           
+            BitmapImage bitmapImage = Base64EncoderDecorder.Base64ToImage(levelInfo.Base64Images[index]);
+
+            imageControl.Source = bitmapImage;
+            border.Child = imageControl;
+
+            if (OPENED_CARDS.Count == 2)
+            {
+                int tag1 = (int)OPENED_CARDS[0].Tag;
+                int tag2 = (int)OPENED_CARDS[1].Tag;
+
+                int index1 = TAGS[tag1];
+                int index2 = TAGS[tag2];
+                if (index1 == index2)
+                {
+                    score += 10;
+                    countCorrect++;
+                }
+                else
+                {
+                    TAGS_OPENED[tag1] = false;
+                    TAGS_OPENED[tag2] = false;
+
+                    BitmapImage bitmapImage1 =
+                      new BitmapImage(new Uri("pack://application:,,,/Resources/logoIcon.png"));
+                    BitmapImage bitmapImage2 =
+                      new BitmapImage(new Uri("pack://application:,,,/Resources/logoIcon.png"));
+                    //closing both images
+                    Image imageControl1= OPENED_CARDS[0].Child as Image;
+                    Image imageControl2 = OPENED_CARDS[1].Child as Image;
+
+                    imageControl1.Source = bitmapImage1;
+                    imageControl2.Source = bitmapImage2;
+
+                    OPENED_CARDS[0].Child = imageControl1;
+                    OPENED_CARDS[1].Child = imageControl2;
+
+
+                }
+
+
+                OPENED_CARDS.Clear();
+            }
 
 
 
+            scoreLbl.Content = score;
+            if (countCorrect == levelInfo.Base64Images.Count)
+            {
+                StopBackgroundTimer();
 
+                //TODO SHOW CUSTOM MESSAGEBOX WITH RESULTS AND EXIT
+                MessageBox.Show("Congradulations:", "GREAT SUCCESS", MessageBoxButton.OK);
+                this.Close();
+            }
 
         }
+
+        private Border? FindBorderByTag(Canvas canvas, object desiredTag)
+        {
+            foreach (var child in canvas.Children)
+            {
+                if (child is Border border && border.Tag != null && border.Tag.Equals(desiredTag))
+                {
+                    return border;
+                }
+            }
+            return null; 
+        }
+
+
+
+
+    }
 }
