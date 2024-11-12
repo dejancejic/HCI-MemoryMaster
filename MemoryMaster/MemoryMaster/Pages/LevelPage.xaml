@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-        Title="MemoryMaster" Height="750" Width="1400" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="MemoryMaster" Height="750" Width="1400" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelBackground.jpg"/>
     </Window.Background>

@@ -15,6 +15,7 @@
     <System:String x:Key="time">Time:</System:String>
     <System:String x:Key="highScore">High Score:</System:String>
     <System:String x:Key="bestTime">Best Time:</System:String>
+    <System:String x:Key="prviousBestTime">Previous Best Time:</System:String>
     <System:String x:Key="addLevelTitle">MemoryMaster - Add New Level</System:String>
     <System:String x:Key="enterLevelName">Enter level name</System:String>
     <System:String x:Key="imagesPicked">Picked Images</System:String>
@@ -31,4 +32,10 @@
     <System:String x:Key="errorInFile">Error reading the file!</System:String>
     <System:String x:Key="errorWritingFile">Error writing the file!</System:String>
     <System:String x:Key="levelAlreadyExists">Level with that name already exists!</System:String>
+    <System:String x:Key="prevousBest">Previous Best:</System:String>
+    <System:String x:Key="previousTime">Previous Best Time:</System:String>
+    <System:String x:Key="congradulations">Congradulations!</System:String>
+    <System:String x:Key="myLevels">MemoryMaster - My Levels</System:String>
+    <System:String x:Key="sureToDeleteLevel">Are you sure you want to delete this level?</System:String>
+    <System:String x:Key="confirmation">Confirmation</System:String>
 </ResourceDictionary>

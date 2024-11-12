@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MemoryMaster" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="MemoryMaster" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
     <Window.Background>
         <ImageBrush ImageSource="Resources/backgroundImage.jpg"/>
     </Window.Background>
@@ -66,7 +66,7 @@
                 <ImageBrush ImageSource="/Resources/infoIcon.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="32" Style="{StaticResource RoundedButtonStyle}" Background="#FF79C5FF" FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold" Margin="114,122,0,0" Grid.Column="1" RenderTransformOrigin="1.05,-0.813" />
+        <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="32" Style="{StaticResource RoundedButtonStyle}" Background="#FF79C5FF" FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold" Margin="114,122,0,0" Grid.Column="1" RenderTransformOrigin="1.05,-0.813" Click="MyLevelsBtnClick" />
 
     </Grid>
 </Window>

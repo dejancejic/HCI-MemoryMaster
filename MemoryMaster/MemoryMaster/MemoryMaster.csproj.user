@@ -19,6 +19,12 @@
     <Compile Update="Pages\LevelPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\MyLevelsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ScorePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -34,6 +40,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\LevelPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MyLevelsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ScorePage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Dictionary-en.xaml">

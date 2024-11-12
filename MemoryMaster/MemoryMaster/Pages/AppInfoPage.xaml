@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-        Title="Info" Height="350" Width="550" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+        Title="Info" Height="350" Width="550" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closed="Window_Closed" Icon="/Resources/logoIcon.png">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/backgroundImage.jpg"/>
     </Window.Background>

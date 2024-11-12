@@ -20,18 +20,21 @@ namespace MemoryMaster.Pages
     public partial class ChooseLevelPage : Window
     {
 
-        List<LevelModel> levels = new List<LevelModel>();
-        List<UserScoreModel> userScores = new List<UserScoreModel>();
+       private  List<LevelModel> levels = new List<LevelModel>();
+        private List<UserScoreModel> userScores = new List<UserScoreModel>();
         int selectedLevelIndex=0;
+        private static Button? buttonClicked;
         public ChooseLevelPage()
         {
             InitializeComponent();
+            buttonClicked = Level1Btn;
 
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
             string filePath = Path.Combine(projectDirectory, "Resources", "Data");
             levels = AddLevelPage.ReadLevelData(filePath+"\\Levels.txt");
             userScores = AddLevelPage.ReadUserData(filePath+"\\UserData.txt");
+
 
             resultLbl.Content = userScores[0].HighScore;
             timeLeftLbl.Content = userScores[0].BestTime;
@@ -42,7 +45,10 @@ namespace MemoryMaster.Pages
         {
             String text = ((Button)sender).Content.ToString();
             int index = int.Parse(((Button)sender).Tag.ToString())-1;
-
+            if (index >= levels.Count)
+            {
+                return;
+            }
             levelLbl.Content= text;
             resultLbl.Content = userScores[index].HighScore;
             timeLeftLbl.Content = userScores[index].BestTime;
@@ -61,7 +67,7 @@ namespace MemoryMaster.Pages
             Level8Btn.Style = (Style)FindResource("RoundedButtonStyle");
             clickedButton.Style = (Style)FindResource("SelectedButtonStyle");
 
-
+            buttonClicked = clickedButton;
 
         }
 
@@ -72,8 +78,12 @@ namespace MemoryMaster.Pages
 
         private void PlayLevelBtnClick(object sender, RoutedEventArgs e)
         {
+            if (selectedLevelIndex >=levels.Count)
+            {
+                return;
+            }
             NavigateNextPage(new LevelPage(levelInfo: levels[selectedLevelIndex], 
-                userScores[selectedLevelIndex]));
+                userScores[selectedLevelIndex],levels,userScores));
         }
         private void NavigateNextPage(Window window)
         {
@@ -84,6 +94,7 @@ namespace MemoryMaster.Pages
         private void SecondWindow_Closed(object sender, System.EventArgs e)
         {
             this.Show();
+            showLevelInfoBtnClick(buttonClicked, new RoutedEventArgs());
         }
     }
 }

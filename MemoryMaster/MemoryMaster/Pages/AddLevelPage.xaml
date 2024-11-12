@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-        Title="{DynamicResource addLevelTitle}" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="{DynamicResource addLevelTitle}" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelsImage.jpg"/>
     </Window.Background>

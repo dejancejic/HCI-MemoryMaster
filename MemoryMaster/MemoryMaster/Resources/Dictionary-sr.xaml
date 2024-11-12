@@ -31,4 +31,10 @@
     <System:String x:Key="levelAlreadyExists">Nivo sa tim imenom već postoji!</System:String>
     <System:String x:Key="score">Rezultat:</System:String>
     <System:String x:Key="time">Vrijeme:</System:String>
+    <System:String x:Key="prevousBest">Prethodni Rezultat:</System:String>
+    <System:String x:Key="previousTime">Prethodno Vrijeme:</System:String>
+    <System:String x:Key="congradulations">Čestitamo!</System:String>
+    <System:String x:Key="myLevels">MemoryMaster - Moji Nivoi</System:String>
+    <System:String x:Key="sureToDeleteLevel">Da li ste sigurni da želite da obrišete ovaj nivo?</System:String>
+    <System:String x:Key="confirmation">Potvrda</System:String>
 </ResourceDictionary>

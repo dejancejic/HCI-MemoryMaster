@@ -12,9 +12,6 @@ using System.Windows.Shapes;
 
 namespace MemoryMaster
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -81,6 +78,11 @@ namespace MemoryMaster
         private void addLevelBtnClick(object sender, RoutedEventArgs e)
         {
             NavigateNextPage(new AddLevelPage());
+        }
+
+        private void MyLevelsBtnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateNextPage(new MyLevelsPage());
         }
     }
 }

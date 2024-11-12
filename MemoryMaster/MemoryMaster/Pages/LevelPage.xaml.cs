@@ -4,9 +4,11 @@ using System;
 using System.Buffers.Text;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,7 +17,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace MemoryMaster.Pages
@@ -29,9 +30,11 @@ namespace MemoryMaster.Pages
         private bool isRunning;
         private bool myLevel;
         private int score=0;
+        private List<UserScoreModel> scoresList;
+        private List<LevelModel> levelsList;
         
         //if coordinates are taken the value will be true!
-         Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
+         private static Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
             {"30,20",false},
             {"170,20",false},
             {"310,20",false},
@@ -59,7 +62,7 @@ namespace MemoryMaster.Pages
             {"870,450",false},
             {"1010,450",false},
         };
-        static List<string> COORDINATES_STRINGS = new List<string> {
+        private static List<string> COORDINATES_STRINGS = new List<string> {
             "30,20",
             "170,20",
             "310,20",
@@ -89,12 +92,15 @@ namespace MemoryMaster.Pages
         };
 
 
-        public LevelPage(LevelModel levelInfo, UserScoreModel scores,bool myLevel=false)
+        public LevelPage(LevelModel levelInfo, UserScoreModel scores,List<LevelModel> levelsList,
+            List<UserScoreModel>scoresList,bool myLevel=false)
         {
             InitializeComponent();
             this.levelInfo = levelInfo;
             this.scores = scores;
             this.myLevel= myLevel;
+            this.scoresList = scoresList;
+            this.levelsList = levelsList;
             this.Title = "MemoryMaster - " + scores.Name;
 
             stopwatch = new Stopwatch();
@@ -288,11 +294,55 @@ namespace MemoryMaster.Pages
             {
                 StopBackgroundTimer();
 
-                //TODO SHOW CUSTOM MESSAGEBOX WITH RESULTS AND EXIT
-                MessageBox.Show("Congradulations:", "GREAT SUCCESS", MessageBoxButton.OK);
-                this.Close();
+              
+                NavigateNextPage(new ScorePage(scores, score, timeLbl.Content.ToString()));
+
+                
+                if(score>=scores.HighScore)
+                {
+                    scores.HighScore = score;
+                    scores.BestTime = timeLbl.Content.ToString();
+                    //writing results to file
+
+                    string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
+                    string filePath = Path.Combine(projectDirectory, "Resources", "Data");
+
+                    if (myLevel == true)
+                    {
+                        filePath += "\\Local";
+                    }
+
+                    try
+                    {
+                        string json = JsonSerializer.Serialize(scoresList);
+
+                        AddLevelPage.WriteUserData(filePath + "\\UserData.txt", json);
+                        json = JsonSerializer.Serialize(levelsList);
+                        AddLevelPage.WriteUserData(filePath + "\\Levels.txt", json);
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show((string)FindResource("errorWritingFile"), (string)FindResource("errorText"), MessageBoxButton.OK);
+                        return;
+                    }
+
+
+                }
+                
             }
 
+        }
+        private void NavigateNextPage(Window window)
+        {
+            window.Closed += SecondWindow_Closed;
+            window.Show(); 
+           
+        }
+        private void SecondWindow_Closed(object sender, System.EventArgs e)
+        {
+            this.Close();
         }
 
         private Border? FindBorderByTag(Canvas canvas, object desiredTag)
