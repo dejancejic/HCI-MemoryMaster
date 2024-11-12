@@ -80,7 +80,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="97*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="14,31,370,292" Grid.Column="1" TextChanged="LevelNameTextChanged"/>
+        <TextBox x:Name="textBox" FontFamily="Comic Sans MS" Style="{StaticResource RoundedTextBoxStyle}" Margin="14,31,370,292" Grid.Column="1" TextChanged="LevelNameTextChanged"/>
         <Button x:Name="pickImageBtn" Style="{StaticResource PickImageButtonStyle}" Content="{DynamicResource pickNewImage}" HorizontalAlignment="Left" Height="35" Margin="337,305,0,0" VerticalAlignment="Top" Width="173" Background="#FF394ED6" FontFamily="Comic Sans MS" FontSize="14" Click="PickImageBtnClick" Foreground="White" FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="mainMenuBtn" Style="{StaticResource PickImageButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left" Height="35" Margin="15,305,0,0" VerticalAlignment="Top" Width="116" Background="#FFEE2A13" FontFamily="Comic Sans MS" FontSize="17" Click="MainMenuBtnClick" Foreground="White" FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="addLevelBtn" Style="{StaticResource PickImageButtonStyle}" Content="{DynamicResource addLevel}" HorizontalAlignment="Left" Height="35" Margin="15,112,0,0" VerticalAlignment="Top" Width="197" Background="#FF394ED6" FontFamily="Comic Sans MS" FontSize="15" Click="AddLevelBtnClick" Foreground="White" FontWeight="Bold" Grid.Column="1"/>

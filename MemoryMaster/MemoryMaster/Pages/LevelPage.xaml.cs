@@ -155,12 +155,12 @@ namespace MemoryMaster.Pages
         private void CreateImagePanel()
         {
             Random random = new Random();
-          
+            int position = 0;
+            for (int i = 0; i < 2; i++)
+            {
+                position = 0;
                 foreach (string base64 in levelInfo.Base64Images)
                 {
-                for (int i = 0; i < 2; i++)
-                    {
-
                     Border imageCard = new Border
                     {
                         Background = Brushes.White,
@@ -172,7 +172,8 @@ namespace MemoryMaster.Pages
                             BorderThickness = new Thickness(1)
                         };
 
-                    TAGS[idCard] = i;
+                    TAGS[idCard] = position;
+                    position++;
                     TAGS_OPENED[idCard] = false;
                    
                     idCard++;
@@ -226,6 +227,11 @@ namespace MemoryMaster.Pages
         private void CardClickedEvent(object sender, EventArgs e)
         {
             Border border = sender as Border;
+            int tag = (int)border.Tag;
+            if (TAGS_OPENED[tag] == true)
+            {
+                return;
+            }
             if (OPENED_CARDS.Contains(border))
             {
                 return;
@@ -236,12 +242,8 @@ namespace MemoryMaster.Pages
             }
             
             Image imageControl = border.Child as Image;
-            int tag = (int)border.Tag;
+            
             int index = TAGS[tag];
-            if (TAGS_OPENED[tag] == true)
-            {
-                return;
-            }
             TAGS_OPENED[tag] = true;
            
             BitmapImage bitmapImage = Base64EncoderDecorder.Base64ToImage(levelInfo.Base64Images[index]);
@@ -282,8 +284,6 @@ namespace MemoryMaster.Pages
 
 
                 }
-
-
                 OPENED_CARDS.Clear();
             }
 

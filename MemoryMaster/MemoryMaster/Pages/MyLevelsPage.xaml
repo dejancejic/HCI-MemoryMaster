@@ -85,19 +85,17 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button x:Name="mainMenuBtn" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left" Height="35" Margin="29,310,0,0" VerticalAlignment="Top" Width="116" Background="#FFEE2A13" FontFamily="Comic Sans MS" FontSize="17" Click="MainMenuBtnClick" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="mainMenuBtn" BorderThickness="1" BorderBrush="White" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left" Height="35" Margin="29,310,0,0" VerticalAlignment="Top" Width="116" Background="#FFEE2A13" FontFamily="Comic Sans MS" FontSize="17" Click="MainMenuBtnClick" Foreground="White" FontWeight="Bold"/>
         <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,60,0,0" Width="250" Height="250" Grid.Column="1">
             <Grid>
                 <Rectangle Fill="#FFF7F7F7" Opacity="0.3" RadiusX="15" RadiusY="15" Margin="0,-20,0,10"/>
-                <Label x:Name="levelNumberLbl" Content="{DynamicResource levelLabel}" Margin="80,-15,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <Label x:Name="levelLbl" Content="1" Margin="135,-14,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
                 <Button x:Name="playBtn" BorderBrush="White" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center" Height="30" Margin="0,190,0,0" VerticalAlignment="Top" Width="148" Background="#FF071241" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" Click="PlayLevelBtnClick" Foreground="White" Panel.ZIndex="2"/>
                
-                <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="10,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="resultLbl" Content="0" Margin="150,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="levelNameLbl" Content="Introduction" Margin="10,35,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="25"/>
-                <Label x:Name="bestTimeLbl" Content="{DynamicResource bestTime}" Margin="10,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="timeLeftLbl" Content="0" Margin="150,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="10,90,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="resultLbl" Content="0" Margin="150,90,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="levelNameLbl" Content="Introduction" Margin="10,20,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="25"/>
+                <Label x:Name="bestTimeLbl" Content="{DynamicResource bestTime}" Margin="10,130,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="timeLeftLbl" Content="0" Margin="150,130,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
             </Grid>
         </Border>
 

@@ -34,3 +34,5 @@ C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\Memo
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\ScorePage.baml
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\MyLevelsPage.g.cs
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\MyLevelsPage.baml
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\UpdateLevelPage.g.cs
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows\Pages\UpdateLevelPage.baml

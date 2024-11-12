@@ -37,4 +37,10 @@
     <System:String x:Key="myLevels">MemoryMaster - Moji Nivoi</System:String>
     <System:String x:Key="sureToDeleteLevel">Da li ste sigurni da želite da obrišete ovaj nivo?</System:String>
     <System:String x:Key="confirmation">Potvrda</System:String>
+    <System:String x:Key="updateLevel">MemoryMaster - Ažuriranje nivoa</System:String>
+    <System:String x:Key="updateName">Ažurirajte Ime Nivoa:</System:String>
+    <System:String x:Key="update">Ažurirajte Nivo</System:String>
+    <System:String x:Key="updateImages">Ažurirajte Slike</System:String>
+    <System:String x:Key="updatedLevel">Uspješno ažuriran nivo!</System:String>
+    <System:String x:Key="success">Uspješno</System:String>
 </ResourceDictionary>

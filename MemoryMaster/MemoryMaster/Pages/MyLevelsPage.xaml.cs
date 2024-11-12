@@ -58,18 +58,47 @@ namespace MemoryMaster.Pages
             NavigateNextPage(new LevelPage(levelInfo: levelsList[index],
                 scoresList[index],levelsList, scoresList,true));
         }
-
+        private int tagUpdate = 0;
         private void NavigateNextPage(Window window)
         {
             window.Closed += SecondWindow_Closed;
             window.Show(); this.Hide();
             this.Hide();
         }
+        private void NavigateUpdatePage(Window window) {
+
+            window.Closed += UpdateWindow_Closed;
+            window.Show(); this.Hide();
+            this.Hide();
+        }
+        private void UpdateWindow_Closed(object sender, System.EventArgs e)
+        {
+            this.Show();
+            int index = levelsList.IndexOf(modelTagDictionary[tagUpdate]);
+            foreach(var panel in stackPanels)
+            { 
+                if ((int)panel.Tag == tagUpdate)
+                {
+                    foreach(var btn in  panel.Children)
+                    {
+                        if ((int)(btn as Button).Tag == tagUpdate)
+                        {
+                            Button b = btn as Button;
+                            b.Content = scoresList[index].Name;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            levelNameLbl.Content = scoresList[index].Name;
+
+        }
         private void SecondWindow_Closed(object sender, System.EventArgs e)
         {
             this.Show();
             int index = CalculateIndex();
-
+            
             resultLbl.Content = scoresList[index].HighScore;
             timeLeftLbl.Content = scoresList[index].BestTime;
             levelNameLbl.Content = scoresList[index].Name;
@@ -87,6 +116,7 @@ namespace MemoryMaster.Pages
                 {
                     Orientation = Orientation.Horizontal,
                     Margin = new Thickness(5),
+                    Tag=index
                 };
                 stackPanels.Add(buttonPanel);
                 modelTagDictionary[index] = level;
@@ -172,8 +202,10 @@ namespace MemoryMaster.Pages
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             int tag = int.Parse((sender as Button).Tag.ToString());
-
-            //todo
+            int index= levelsList.IndexOf(modelTagDictionary[tag]);
+            tagUpdate = tag;
+            NavigateUpdatePage(new UpdateLevelPage(levelsList[index], scoresList[index],
+                levelsList,scoresList));
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)

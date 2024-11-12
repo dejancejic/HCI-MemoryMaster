@@ -31,7 +31,7 @@ namespace MemoryMaster.Pages
         {
             String text = ((TextBox)sender).Text.ToString();
 
-            if (text.Length > 12)
+            if (text.Length > 20)
             {
                 string message = (string)FindResource("levelNameTextSize");
                 string title = (string)FindResource("errorText");

@@ -1,1 +1,1 @@
-[{"id":1,"name":"First Level","bestTime":"00:03,26","highScore":20}]
+[{"id":1,"name":"First Level","bestTime":"00:16,02","highScore":40}]
