@@ -83,12 +83,43 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="43*"/>
+                                <ColumnDefinition Width="32*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Grid.ColumnSpan="2" Margin="0,0,-16,0"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Grid.ColumnSpan="2"/>
+                            <TextBlock x:Name="PlaceholderText" Text="{DynamicResource searchLevel}" Foreground="Gray" Margin="5,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="Collapsed" Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
+        <TextBox x:Name="textBox" FontFamily="Comic Sans MS" Style="{StaticResource RoundedTextBoxStyle}" Margin="10,10,351,324" TextChanged="LevelNameTextChanged"/>
         <Button x:Name="mainMenuBtn" BorderThickness="1" BorderBrush="White" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left" Height="35" Margin="29,310,0,0" VerticalAlignment="Top" Width="116" Background="#FFEE2A13" FontFamily="Comic Sans MS" FontSize="17" Click="MainMenuBtnClick" Foreground="White" FontWeight="Bold"/>
         <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,60,0,0" Width="250" Height="250" Grid.Column="1">
             <Grid>
-                <Rectangle Fill="#FFF7F7F7" Opacity="0.3" RadiusX="15" RadiusY="15" Margin="0,-20,0,10"/>
+                <Rectangle Fill="#FFF7F7F7" Opacity="0.3" RadiusX="15" RadiusY="15" Margin="0, 0,0,10"/>
                 <Button x:Name="playBtn" BorderBrush="White" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center" Height="30" Margin="0,190,0,0" VerticalAlignment="Top" Width="148" Background="#FF071241" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" Click="PlayLevelBtnClick" Foreground="White" Panel.ZIndex="2"/>
                
                 <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="10,90,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
@@ -101,9 +132,10 @@
 
         <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,60,0,0" Width="250" Height="250" Grid.Column="1">
             <Grid>
-                <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,-20,0,10"/>
-                <Label x:Name="lblLevels" Content="{DynamicResource myLevel}" Margin="70,-20,-19,-8" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,19,0,10">
+
+                <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0, 0,0,10"/>
+                <Label x:Name="lblLevels" Content="{DynamicResource myLevel}" Margin="70, 0,-19,-8" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,39,0,10">
                     <StackPanel Name="levelsStackPanel">
 
 

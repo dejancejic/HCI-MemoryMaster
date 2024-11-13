@@ -32,6 +32,7 @@ namespace MemoryMaster.Pages
         private int score=0;
         private List<UserScoreModel> scoresList;
         private List<LevelModel> levelsList;
+        private bool started = false;
         
         //if coordinates are taken the value will be true!
          private static Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
@@ -107,12 +108,9 @@ namespace MemoryMaster.Pages
             uiTimer = new DispatcherTimer();
             uiTimer.Interval = TimeSpan.FromMilliseconds(100);
             uiTimer.Tick += UiTimer_Tick;
-            stopwatch.Start();
-            uiTimer.Start();
 
-            isRunning = true;
             CreateImagePanel();
-            StartBackgroundTimer();
+            
         }
 
         private void UiTimer_Tick(object sender, EventArgs e)
@@ -226,6 +224,10 @@ namespace MemoryMaster.Pages
         private List<Border> OPENED_CARDS = new List<Border>();
         private void CardClickedEvent(object sender, EventArgs e)
         {
+            if (started == false)
+            {
+                return;
+            }
             Border border = sender as Border;
             int tag = (int)border.Tag;
             if (TAGS_OPENED[tag] == true)
@@ -357,8 +359,20 @@ namespace MemoryMaster.Pages
             return null; 
         }
 
+        private void StartGameBtnClicked(object sender, RoutedEventArgs e)
+        {
+                started = true;
 
+            Button b = sender as Button;
 
+            b.IsEnabled = false;
 
+            stopwatch.Start();
+            uiTimer.Start();
+
+            isRunning = true;
+            StartBackgroundTimer();
+
+        }
     }
 }

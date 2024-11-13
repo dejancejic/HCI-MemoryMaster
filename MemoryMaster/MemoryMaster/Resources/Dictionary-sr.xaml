@@ -43,4 +43,6 @@
     <System:String x:Key="updateImages">Ažurirajte Slike</System:String>
     <System:String x:Key="updatedLevel">Uspješno ažuriran nivo!</System:String>
     <System:String x:Key="success">Uspješno</System:String>
+    <System:String x:Key="start">Počni Igru</System:String>
+    <System:String x:Key="searchLevel">Pretražite po imenu nivoa...</System:String>
 </ResourceDictionary>

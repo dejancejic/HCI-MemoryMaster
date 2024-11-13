@@ -94,6 +94,20 @@ namespace MemoryMaster.Pages
             levelNameLbl.Content = scoresList[index].Name;
 
         }
+        private void LevelNameTextChanged(object sender, System.EventArgs e) {
+
+            string text = textBox.Text;
+            //TODO FILTERING
+            foreach (var level in levelsList) { 
+            
+                if(level.Name.Contains(text)) { 
+                
+
+
+                }
+            }
+
+        }
         private void SecondWindow_Closed(object sender, System.EventArgs e)
         {
             this.Show();
