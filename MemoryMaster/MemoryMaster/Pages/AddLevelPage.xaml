@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="{DynamicResource addLevelTitle}" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
     <Window.Background>
@@ -43,36 +44,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="43*"/>
-                                <ColumnDefinition Width="32*"/>
-                            </Grid.ColumnDefinitions>
-                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Grid.ColumnSpan="2" Margin="0,0,-16,0"/>
-                            <ScrollViewer x:Name="PART_ContentHost" Grid.ColumnSpan="2"/>
-                            <TextBlock x:Name="PlaceholderText" Text="{DynamicResource enterLevelName}" Foreground="Gray" Margin="5,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="Collapsed" Grid.ColumnSpan="2"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <Trigger Property="Text" Value="{x:Null}">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+
     </Window.Resources>
 
     <Grid>

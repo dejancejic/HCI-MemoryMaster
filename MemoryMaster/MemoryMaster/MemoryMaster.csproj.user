@@ -60,5 +60,8 @@
     <Page Update="Resources\Dictionary-sr.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

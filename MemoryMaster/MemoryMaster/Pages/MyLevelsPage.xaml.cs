@@ -97,14 +97,31 @@ namespace MemoryMaster.Pages
         private void LevelNameTextChanged(object sender, System.EventArgs e) {
 
             string text = textBox.Text;
-            //TODO FILTERING
+            //TODO FILTERING(check when there is more)
+
+            List<StackPanel> toRemove = new List<StackPanel>();
+            foreach (var comp in levelsStackPanel.Children)
+            {
+                if (comp is StackPanel)
+                {
+                    StackPanel pan = comp as StackPanel;
+
+                    toRemove.Add(pan);
+                }
+            }
+            foreach (var panel in toRemove)
+            {
+                levelsStackPanel.Children.Remove(panel);
+            }
+            int i = 0;
             foreach (var level in levelsList) { 
             
-                if(level.Name.Contains(text)) { 
-                
+                if(level.Name.ToLower().Contains(text.ToLower())) {
 
+                    levelsStackPanel.Children.Add(stackPanels[i]);
 
                 }
+                i++;
             }
 
         }

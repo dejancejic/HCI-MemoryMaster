@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "qiZvOEKPVHYVuM3szZizfAJ9ydlQNmdLJB8VVxAPoSYv+LpVHYRQqiMFguiNbL8aJmZpMoYyhdTAJlTq5M66jw==",
+  "dgSpecHash": "uK++LCfT6JJ7UNMNqZUxtTmF+FjCZDOIrf3VmvhYPTw6cCZtES0hvU1T+Z/m8BKZdcETnn5YRnl6qSrP/jQq6A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\MemoryMaster.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dejan\\.nuget\\packages\\materialdesigncolors\\3.1.0\\materialdesigncolors.3.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\materialdesignthemes\\5.1.0\\materialdesignthemes.5.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
   "logs": []
 }
