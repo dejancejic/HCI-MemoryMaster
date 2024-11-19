@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <System:String x:Key="levelsPath">levels.txt</System:String>
+    <System:String x:Key="localLevelsPath">localLevels.txt</System:String>
+    <System:String x:Key="userDataPath">userData.txt</System:String>
+    <System:String x:Key="localUserDataPath">localUserData.txt</System:String>
+</ResourceDictionary>

@@ -3,6 +3,7 @@ using MemoryMaster.Utils;
 using System;
 using System.Buffers.Text;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -30,12 +31,17 @@ namespace MemoryMaster.Pages
         private bool isRunning;
         private bool myLevel;
         private int score=0;
-        private List<UserScoreModel> scoresList;
-        private List<LevelModel> levelsList;
+        private ObservableCollection<UserScoreModel> scoresList;
+        private ObservableCollection<LevelModel> levelsList;
         private bool started = false;
-        
+        private int idCard = 0;
+        Dictionary<int, int> TAGS = new Dictionary<int, int>();
+        Dictionary<int, bool> TAGS_OPENED = new Dictionary<int, bool>();
+        private int countCorrect = 0;
+        private int countIncorrect = 0;
+
         //if coordinates are taken the value will be true!
-         private static Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
+        private static Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
             {"30,20",false},
             {"170,20",false},
             {"310,20",false},
@@ -93,8 +99,8 @@ namespace MemoryMaster.Pages
         };
 
 
-        public LevelPage(LevelModel levelInfo, UserScoreModel scores,List<LevelModel> levelsList,
-            List<UserScoreModel>scoresList,bool myLevel=false)
+        public LevelPage(LevelModel levelInfo, UserScoreModel scores,ObservableCollection<LevelModel> levelsList,
+            ObservableCollection<UserScoreModel>scoresList,bool myLevel=false)
         {
             InitializeComponent();
             this.levelInfo = levelInfo;
@@ -145,11 +151,8 @@ namespace MemoryMaster.Pages
             stopwatch.Stop();
             uiTimer.Stop();
         }
-        private int idCard=0;
-        Dictionary<int, int> TAGS = new Dictionary<int, int>();
-        Dictionary<int, bool> TAGS_OPENED = new Dictionary<int, bool>();
-        private int countCorrect = 0;
         
+
         private void CreateImagePanel()
         {
             Random random = new Random();
@@ -262,7 +265,25 @@ namespace MemoryMaster.Pages
                 int index2 = TAGS[tag2];
                 if (index1 == index2)
                 {
-                    score += 10;
+                    //Game score logic(based on time, less time means better result,
+                    //and on correct and incorrect guesses difference)
+                    TimeSpan elapsed = stopwatch.Elapsed;
+                    int millis = elapsed.Milliseconds;
+
+                    int baseScoreIncrement = 100;
+
+                    double timeFactor = 1.0 / (elapsed.TotalSeconds + 1);
+
+                    double correctFactor = 2.5;  
+                    double incorrectFactor = 0.5;
+                    int scoreIncrement =
+                        (int)(baseScoreIncrement * timeFactor * 
+                        (countCorrect * correctFactor - countIncorrect * incorrectFactor));
+                    if (scoreIncrement < 0)
+                        scoreIncrement = 0;
+
+                    score += scoreIncrement;
+
                     countCorrect++;
                 }
                 else
@@ -283,7 +304,9 @@ namespace MemoryMaster.Pages
 
                     OPENED_CARDS[0].Child = imageControl1;
                     OPENED_CARDS[1].Child = imageControl2;
-
+                    
+                    //incrementing incorrect guesses
+                    countIncorrect++;
 
                 }
                 OPENED_CARDS.Clear();
@@ -304,24 +327,14 @@ namespace MemoryMaster.Pages
                 {
                     scores.HighScore = score;
                     scores.BestTime = timeLbl.Content.ToString();
-                    //writing results to file
-
-                    string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-                    string filePath = Path.Combine(projectDirectory, "Resources", "Data");
-
-                    if (myLevel == true)
-                    {
-                        filePath += "\\Local";
-                    }
+                    //writing results to files
 
                     try
                     {
-                        string json = JsonSerializer.Serialize(scoresList);
 
-                        AddLevelPage.WriteUserData(filePath + "\\UserData.txt", json);
-                        json = JsonSerializer.Serialize(levelsList);
-                        AddLevelPage.WriteUserData(filePath + "\\Levels.txt", json);
+                        IOUtil.WriteData(levelsList, myLevel: myLevel);
+                        IOUtil.WriteData(scoresList,myLevel: myLevel);
+                        
                     }
                     catch (Exception)
                     {

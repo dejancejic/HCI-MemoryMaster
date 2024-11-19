@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Buffers.Text;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
@@ -25,13 +26,13 @@ namespace MemoryMaster.Pages
 
         private LevelModel level;
         private UserScoreModel score;
-        private List<LevelModel> levels;
-        private List<UserScoreModel> scores;
+        private ObservableCollection<LevelModel> levels;
+        private ObservableCollection<UserScoreModel> scores;
         private bool modified = false;
         private List<string> images=new List<string>();
         private Dictionary<StackPanel,string> panelString=new Dictionary<StackPanel,string>();
             public UpdateLevelPage(LevelModel level,UserScoreModel score,
-                List<LevelModel> levels,List<UserScoreModel> scores)
+                ObservableCollection<LevelModel> levels,ObservableCollection<UserScoreModel> scores)
         {
             InitializeComponent();
             this.level = level;
@@ -64,17 +65,14 @@ namespace MemoryMaster.Pages
             level.Name = textBox.Text;
             score.Name= textBox.Text;
             //serializing the file
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-            string filePath = Path.Combine(projectDirectory, "Resources", "Data", "Local");
             try
             {
 
                 string json = JsonSerializer.Serialize(scores);
 
-                AddLevelPage.WriteUserData(filePath + "\\UserData.txt", json);
+                IOUtil.WriteData(scores,myLevel:true);
                 json = JsonSerializer.Serialize(levels);
-                AddLevelPage.WriteUserData(filePath + "\\Levels.txt", json);
+                IOUtil.WriteData(levels,myLevel:true);
             }
             catch (Exception)
             {
@@ -138,16 +136,11 @@ namespace MemoryMaster.Pages
           
                 Button deleteButton = new Button
                 {
-                    Content = new Image
-                    {
-                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/deleteIcon.png")),
-                        Width = 30,
-                        Height = 30
-                    },
+                   
                     Width = 50,
                     Height = 50,
                     Margin = new Thickness(5),
-                    Style = (Style)FindResource("IconButtonStyle")
+                    Style = (Style)FindResource("DeleteIconButtonStyle")
                 };
                 deleteButton.Click += (sender, e) => DeleteImage(imagePanel);
 

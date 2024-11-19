@@ -1,6 +1,8 @@
 ﻿using MemoryMaster.Model;
+using MemoryMaster.Utils;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -22,17 +24,15 @@ namespace MemoryMaster.Pages
     public partial class MyLevelsPage : Window
     {
 
-        private List<UserScoreModel> scoresList = new List<UserScoreModel>();
-        private List<LevelModel> levelsList=new List<LevelModel>();
+        private ObservableCollection<UserScoreModel> scoresList = new ObservableCollection<UserScoreModel>();
+        private ObservableCollection<LevelModel> levelsList=new ObservableCollection<LevelModel>();
         private Dictionary<int,LevelModel> modelTagDictionary = new Dictionary<int,LevelModel>();
         public MyLevelsPage()
         {
             InitializeComponent();
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-            string filePath = Path.Combine(projectDirectory, "Resources", "Data","Local");
-            levelsList = AddLevelPage.ReadLevelData(filePath + "\\Levels.txt");
-            scoresList = AddLevelPage.ReadUserData(filePath + "\\UserData.txt");
+
+            levelsList = IOUtil.ReadLevelData(myLevel:true);
+            scoresList = IOUtil.ReadUserData(myLevel: true);
 
             if(scoresList.Count == 0) {
                 return;
@@ -172,34 +172,22 @@ namespace MemoryMaster.Pages
                 }
                 Button editButton = new Button
                 {
-                    Content = new Image
-                    {
-                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/editIcon.png")),
-                        Width = 20,
-                        Height = 20
-                    },
                     Width = 30,
                     Height = 30,
                     Tag = index,
                     Margin = new Thickness(5),
-                    Style = (Style)FindResource("IconButtonStyle")
+                    Style = (Style)FindResource("EditIconButtonStyle")
                 };
                 editButton.Click += EditButton_Click;
 
 
                 Button deleteButton = new Button
                 {
-                    Content = new Image
-                    {
-                        Source = new BitmapImage(new Uri("pack://application:,,,/Resources/deleteIcon.png")),
-                        Width = 20,
-                        Height = 20
-                    },
                     Width = 30,
                     Height = 30,
                     Tag = index,
                     Margin = new Thickness(5),
-                    Style = (Style)FindResource("IconButtonStyle")
+                    Style = (Style)FindResource("DeleteIconButtonStyle")
                 };
                 deleteButton.Click += DeleteButton_Click;
 
@@ -253,17 +241,11 @@ namespace MemoryMaster.Pages
                 
                 levelsStackPanel.Children.Remove(stackPanels[tag]);
 
-                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-                string filePath = Path.Combine(projectDirectory, "Resources", "Data","Local");
                 try
                 {
-                   
-                    string json = JsonSerializer.Serialize(scoresList);
+                   IOUtil.WriteData(scoresList, myLevel: true);
 
-                   AddLevelPage.WriteUserData(filePath + "\\UserData.txt", json);
-                    json = JsonSerializer.Serialize(levelsList);
-                    AddLevelPage.WriteUserData(filePath + "\\Levels.txt", json);
+                    IOUtil.WriteData(levelsList, myLevel: true);
                 }
                 catch (Exception)
                 {

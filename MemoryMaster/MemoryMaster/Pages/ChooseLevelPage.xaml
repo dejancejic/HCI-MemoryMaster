@@ -3,55 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MemoryMaster.Pages"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MemoryMaster.Pages" xmlns:model="clr-namespace:MemoryMaster.Model" d:DataContext="{d:DesignInstance Type=model:UserScoreModel}"
         mc:Ignorable="d"
         Title="{DynamicResource chooseLevel}" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelsImage.jpg"/>
     </Window.Background>
     <Window.Resources>
-        <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Height" Value="50" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="Blue" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="25">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="SelectedButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
-            <Setter Property="Background" Value="#FFB0B0E0" />
-            <Setter Property="BorderBrush" Value="White" />
-            <Setter Property="BorderThickness" Value="2" />
-        </Style>
-        <Style x:Key="PlayButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FFB0B0E0"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MemoryMaster;component/Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Window.Resources>
     <Grid>
-        <Grid.Resources>
-
-        </Grid.Resources>
+    
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="29*"/>
             <ColumnDefinition Width="171*"/>
@@ -65,19 +34,20 @@
         <Button x:Name="Level6Btn" Tag="6" Style="{StaticResource RoundedButtonStyle}" Content="6" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="66" Background="#FF56569A" FontFamily="Consolas" FontSize="24" FontWeight="Bold" Margin="110,132,0,0" Click="showLevelInfoBtnClick" Grid.Column="1"/>
         <Button x:Name="Level7Btn" Tag="7" Style="{StaticResource RoundedButtonStyle}" Content="7" HorizontalAlignment="Left" Height="41" Margin="31,195,0,0" VerticalAlignment="Top" Width="66" Background="#FF56569A" FontFamily="Consolas" FontSize="24" FontWeight="Bold" Click="showLevelInfoBtnClick" Grid.ColumnSpan="2"/>
         <Button x:Name="Level8Btn" Tag="8" Style="{StaticResource RoundedButtonStyle}" HorizontalAlignment="Left" Height="40" Margin="28,195,0,0" VerticalAlignment="Top" Width="66" Background="#FF56569A" FontFamily="Consolas" FontSize="24" FontWeight="Bold" Content="8" Click="showLevelInfoBtnClick" Grid.Column="1"/>
-        <Label x:Name="ChooseLevelLbl_Copy" Content="{DynamicResource InfoLevel}" HorizontalAlignment="Left" Height="31" Margin="303,30,0,0" VerticalAlignment="Top" Width="134" Foreground="White" FontFamily="Comic Sans MS" FontSize="16" Grid.Column="1"/>
+        <Label x:Name="levelInfoLabel" Content="{DynamicResource InfoLevel}" HorizontalAlignment="Left" Height="31" Margin="303,30,0,0" VerticalAlignment="Top" Width="134" Foreground="White" FontFamily="Comic Sans MS" FontSize="16" Grid.Column="1"/>
         <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="233,90,0,0" Width="250" Height="250" Grid.Column="1">
             <Grid>
+                
                 <Rectangle Fill="#FFF7F7F7" Opacity="0.3" RadiusX="15" RadiusY="15" Margin="0,-20,0,18"/>
                 <Label x:Name="levelNumberLbl" Content="{DynamicResource levelLabel}" Margin="80,-15,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
                 <Label x:Name="levelLbl" Content="1" Margin="135,-14,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <Button x:Name="playBtn" BorderBrush="White" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center" Height="30" Margin="0,190,0,0" VerticalAlignment="Top" Width="148" Background="#FF071241" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" Click="PlayLevelBtnClick" Foreground="White" Panel.ZIndex="2"/>
-                <Button x:Name="mainMenuBtn" BorderThickness="1" BorderBrush="White" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left" Height="35" Margin="-288,202,0,0" VerticalAlignment="Top" Width="116" Background="#FFEE2A13" FontFamily="Comic Sans MS" FontSize="17" Click="MainMenuBtnClick" Foreground="White" FontWeight="Bold"/>
+                <Button x:Name="playBtn"  Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center"  Margin="0,190,0,0" VerticalAlignment="Top"  Click="PlayLevelBtnClick" Panel.ZIndex="2"/>
+                <Button x:Name="mainMenuBtn"  Style="{StaticResource MainMenuButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left"  Margin="-288,218,0,0" VerticalAlignment="Top"  Click="MainMenuBtnClick"/>
                 <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="10,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="resultLbl" Content="0" Margin="150,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="resultLbl" Content="{Binding [0].HighScore}" Margin="150,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
                 <Label x:Name="levelNameLbl" Content="Introduction" Margin="10,35,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="25"/>
                 <Label x:Name="bestTimeLbl" Content="{DynamicResource bestTime}" Margin="10,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="timeLeftLbl" Content="0" Margin="150,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="timeLeftLbl" Content="{Binding [0].BestTime}" Margin="150,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
             </Grid>
         </Border>
 

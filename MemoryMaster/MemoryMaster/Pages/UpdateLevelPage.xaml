@@ -10,100 +10,22 @@
         <ImageBrush ImageSource="../Resources/levelsImage.jpg"/>
     </Window.Background>
     <Window.Resources>
-        <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Height" Value="50" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Background" Value="#FF071241" />
-            <Setter Property="BorderBrush" Value="White" />
-            <Setter Property="BorderThickness" Value="1"></Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="10">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="43*"/>
-                                <ColumnDefinition Width="32*"/>
-                            </Grid.ColumnDefinitions>
-                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Grid.ColumnSpan="2" Margin="0,0,-16,0"/>
-                            <ScrollViewer x:Name="PART_ContentHost" Grid.ColumnSpan="2"/>
-                            <TextBlock x:Name="PlaceholderText" FontFamily="Comic Sans MS"  Text="{DynamicResource enterLevelName}" Foreground="Gray" Margin="5,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="Collapsed" Grid.ColumnSpan="2"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <Trigger Property="Text" Value="{x:Null}">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="IconButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Width" Value="30"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Content">
-                <Setter.Value>
-                    <Image Width="16" Height="16"/>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FFDDDDDD"/>
-                    <Setter Property="BorderBrush" Value="#FFAAAAAA"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#FFCCCCCC"/>
-                    <Setter Property="BorderBrush" Value="#FF888888"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MemoryMaster;component/Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Button Content="{DynamicResource update}" Style="{StaticResource RoundedButtonStyle}" Background="LimeGreen" HorizontalAlignment="Center" Height="38" Margin="0,556,0,0" VerticalAlignment="Top" Width="227" Click="UpdateBtnClick" RenderTransformOrigin="0.478,1.738" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-        <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="190,31,70,544" TextChanged="LevelNameTextChanged" FontFamily="Comic Sans MS"/>
-        <Label Content="{DynamicResource updateName}" HorizontalAlignment="Left" Height="31" Margin="0,35,0,0" VerticalAlignment="Top" Width="185" Foreground="White" FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+        <Button Content="{DynamicResource update}" Style="{StaticResource UpdatePageButtonsStyle}"  HorizontalAlignment="Center" Height="38" Margin="0,550,0,0" VerticalAlignment="Top" Width="226" Click="UpdateBtnClick" RenderTransformOrigin="0.478,1.738" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
+        <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="190,31,70,544" TextChanged="LevelNameTextChanged" />
+        <Label Content="{DynamicResource updateName}" HorizontalAlignment="Left"  Margin="0,35,0,0" VerticalAlignment="Top"  Foreground="White" FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"/>
 
         <Border CornerRadius="15" HorizontalAlignment="Center" Margin="0,40,0,0" Width="450" Height="400" Grid.Column="1">
             <Grid>
                 <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,-20,0,10"/>
                 <Label x:Name="updateImages" Content="{DynamicResource updateImages}" HorizontalAlignment="Center" Margin="0,-15,0,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <Button Content="{DynamicResource pickNewImage}" HorizontalAlignment="Left" Margin="244,158,0,208"  Style="{StaticResource RoundedButtonStyle}" Height="NaN" Width="174" Click="PickImageBtnClick" Panel.ZIndex="2" FontFamily="Comic Sans MS" FontWeight="Bold"/>
+                <Button Content="{DynamicResource pickNewImage}" HorizontalAlignment="Left" Margin="244,158,0,208"  Style="{StaticResource UpdatePageButtonsStyle}"   Click="PickImageBtnClick" Panel.ZIndex="2" />
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,30,0,10">
                     <StackPanel Name="imagesStackPanel">
 

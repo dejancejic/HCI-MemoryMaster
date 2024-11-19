@@ -15,6 +15,7 @@ using System.IO;
 using MemoryMaster.Utils;
 using MemoryMaster.Model;
 using System.Text.Json;
+using System.Collections.ObjectModel;
 
 namespace MemoryMaster.Pages
 {
@@ -98,21 +99,15 @@ namespace MemoryMaster.Pages
 
             Button removeButton = new Button
             {
-                Style = (Style)FindResource("RoundedButtonStyle"),
+                Style = (Style)FindResource("DeleteIconButtonStyle"),
                 Width = 28,
                 Height = 28,
-                Background = Brushes.Transparent,
                 Margin = new Thickness(0, 0, 2, 0) 
             };
             removeButton.Click += (s, e) => RemoveImageRectangle(imageBorder);
             Grid.SetColumn(removeButton, 1);
 
-            Image buttonImage = new Image
-            {
-                Source = new BitmapImage(new Uri("pack://application:,,,/Resources/deleteIcon.png")),
-                Stretch = Stretch.Uniform
-            };
-            removeButton.Content = buttonImage;
+            
 
             grid.Children.Add(imageLabel);
             grid.Children.Add(removeButton);
@@ -160,15 +155,13 @@ namespace MemoryMaster.Pages
                 base64Strings.Add(base64);
             }
             int id = 1;
-            List<UserScoreModel> userData=new List<UserScoreModel>();
-            List<LevelModel> levels=new List<LevelModel>();
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-            string filePath = Path.Combine(projectDirectory, "Resources", "Data");
+            ObservableCollection<UserScoreModel> userData=new ObservableCollection<UserScoreModel>();
+            ObservableCollection<LevelModel> levels=new ObservableCollection<LevelModel>();
+            
             try
             {
-                userData = ReadUserData(filePath+ "\\UserData.txt");
-                levels = ReadLevelData(filePath + "\\Levels.txt");
+                userData = IOUtil.ReadUserData(myLevel:true);
+                levels = IOUtil.ReadLevelData(myLevel:true);
 
             }catch(Exception ex) {
 
@@ -193,11 +186,10 @@ namespace MemoryMaster.Pages
             try { 
                 userData.Add(score);
                 levels.Add(model);
-                string json=JsonSerializer.Serialize(userData);
 
-                WriteUserData(filePath+"\\UserData.txt", json);
-                json=JsonSerializer.Serialize(levels);
-                WriteUserData(filePath + "\\Levels.txt", json);
+                IOUtil.WriteData<LevelModel>(levels,myLevel:true);
+
+                IOUtil.WriteData<UserScoreModel>(userData, myLevel: true);
             }
             catch(Exception) {
 
@@ -209,24 +201,7 @@ namespace MemoryMaster.Pages
             this.Close();
         }
 
-        public static List<UserScoreModel> ReadUserData(string filePath) 
-        {
-                string jsonString = File.ReadAllText(filePath);
-                List<UserScoreModel> userScores = JsonSerializer.Deserialize<List<UserScoreModel>>(jsonString)!;
-
-                return userScores;
-        }
-        public static List<LevelModel> ReadLevelData(string filePath)
-        {
-            string jsonString = File.ReadAllText(filePath);
-            List<LevelModel> levels = JsonSerializer.Deserialize<List<LevelModel>>(jsonString)!;
-
-            return levels;
-        }
-        public static void WriteUserData(string filePath, string jsonString)
-        {
-                File.WriteAllText(filePath, jsonString);
-        }
+        
 
 
 

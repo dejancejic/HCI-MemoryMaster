@@ -1,6 +1,9 @@
 ﻿using MemoryMaster.Model;
+using MemoryMaster.Utils;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -17,23 +20,28 @@ using System.Windows.Media.Imaging;
 namespace MemoryMaster.Pages
 {
   
-    public partial class ChooseLevelPage : Window
+    public partial class ChooseLevelPage : Window,INotifyPropertyChanged
     {
 
-       private  List<LevelModel> levels = new List<LevelModel>();
-        private List<UserScoreModel> userScores = new List<UserScoreModel>();
+       private  ObservableCollection<LevelModel> levels = new ObservableCollection<LevelModel>();
+        private ObservableCollection<UserScoreModel> userScores = new ObservableCollection<UserScoreModel>();
         int selectedLevelIndex=0;
         private static Button? buttonClicked;
+        public ObservableCollection<UserScoreModel> UserScores {
+            get { return userScores; } 
+            set { userScores = value;
+                
+                OnPropertyChanged(nameof(UserScores));
+            }
+        }
+
         public ChooseLevelPage()
         {
             InitializeComponent();
             buttonClicked = Level1Btn;
-
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.FullName;
-            string filePath = Path.Combine(projectDirectory, "Resources", "Data");
-            levels = AddLevelPage.ReadLevelData(filePath+"\\Levels.txt");
-            userScores = AddLevelPage.ReadUserData(filePath+"\\UserData.txt");
+            DataContext = userScores;
+            levels = IOUtil.ReadLevelData(myLevel:false);
+            userScores = IOUtil.ReadUserData(myLevel:false);
 
 
             resultLbl.Content = userScores[0].HighScore;
@@ -55,16 +63,12 @@ namespace MemoryMaster.Pages
             levelNameLbl.Content = userScores[index].Name;
             selectedLevelIndex = index;
 
-            Button clickedButton = sender as Button; 
-            
-            Level1Btn.Style = (Style)FindResource("RoundedButtonStyle"); 
-            Level2Btn.Style = (Style)FindResource("RoundedButtonStyle");
-            Level3Btn.Style = (Style)FindResource("RoundedButtonStyle");
-            Level4Btn.Style = (Style)FindResource("RoundedButtonStyle");
-            Level5Btn.Style = (Style)FindResource("RoundedButtonStyle");
-            Level6Btn.Style = (Style)FindResource("RoundedButtonStyle"); 
-            Level7Btn.Style = (Style)FindResource("RoundedButtonStyle");
-            Level8Btn.Style = (Style)FindResource("RoundedButtonStyle");
+            Button clickedButton = sender as Button;
+
+            Button[] buttons = { Level1Btn, Level2Btn, Level3Btn, Level4Btn, Level5Btn, Level6Btn, Level7Btn, Level8Btn }; 
+            foreach (Button btn in buttons){
+                btn.Style = (Style)FindResource("RoundedButtonStyle");
+            }
             clickedButton.Style = (Style)FindResource("SelectedButtonStyle");
 
             buttonClicked = clickedButton;
@@ -95,6 +99,12 @@ namespace MemoryMaster.Pages
         {
             this.Show();
             showLevelInfoBtnClick(buttonClicked, new RoutedEventArgs());
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged; 
+        protected void OnPropertyChanged(string propertyName) 
+        { 
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); 
         }
     }
 }

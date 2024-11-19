@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -7,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace MemoryMaster.Model
 {
-    public class UserScoreModel
+    public class UserScoreModel: INotifyPropertyChanged
     {
+        
+        private double _highScore;
+        private string _bestTime;
+
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
@@ -16,10 +21,18 @@ namespace MemoryMaster.Model
         public string Name { get; set; }
 
         [JsonPropertyName("bestTime")]
-        public string BestTime  { get; set; }
+        public string BestTime  { get { return _bestTime; } 
+            
+            set { _bestTime = value; OnPropertyChanged(nameof(BestTime));
+            }
+        }
 
         [JsonPropertyName("highScore")]
-        public double HighScore { get; set; }
+        public double HighScore {
+            get { return _highScore; }
+
+            set { _highScore = value;
+                OnPropertyChanged(nameof(HighScore)); } }
 
         public UserScoreModel()
         {
@@ -47,6 +60,9 @@ namespace MemoryMaster.Model
             return HashCode.Combine(Id);
         }
 
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName) { 
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); 
+        }
     }
 }

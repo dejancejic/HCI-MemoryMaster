@@ -46,4 +46,5 @@
     <System:String x:Key="updatedLevel">Successfully updated level!</System:String>
     <System:String x:Key="success">Success</System:String>
     <System:String x:Key="searchLevel">Search by level name...</System:String>
+    <System:String x:Key="language">Language:</System:String>
 </ResourceDictionary>

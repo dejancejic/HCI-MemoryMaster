@@ -11,8 +11,6 @@
   <ItemGroup>
     <None Remove="Resources\backgroundImage.jpg" />
     <None Remove="Resources\congradulationsImage.jpg" />
-    <None Remove="Resources\deleteIcon.png" />
-    <None Remove="Resources\editIcon.png" />
     <None Remove="Resources\englishIcon.png" />
     <None Remove="Resources\infoIcon.png" />
     <None Remove="Resources\levelBackground.jpg" />
@@ -29,8 +27,6 @@
   <ItemGroup>
     <Resource Include="Resources\backgroundImage.jpg" />
     <Resource Include="Resources\congradulationsImage.jpg" />
-    <Resource Include="Resources\deleteIcon.png" />
-    <Resource Include="Resources\editIcon.png" />
     <Resource Include="Resources\englishIcon.png" />
     <Resource Include="Resources\infoIcon.png" />
     <Resource Include="Resources\levelBackground.jpg" />

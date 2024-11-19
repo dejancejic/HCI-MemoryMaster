@@ -17,6 +17,7 @@ namespace MemoryMaster
         public MainWindow()
         {
             InitializeComponent();
+            enBtn.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
 

@@ -45,4 +45,5 @@
     <System:String x:Key="success">Uspješno</System:String>
     <System:String x:Key="start">Počni Igru</System:String>
     <System:String x:Key="searchLevel">Pretražite po imenu nivoa...</System:String>
+    <System:String x:Key="language">Jezik:</System:String>
 </ResourceDictionary>

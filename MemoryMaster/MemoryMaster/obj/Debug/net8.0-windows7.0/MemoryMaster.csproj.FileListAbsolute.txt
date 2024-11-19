@@ -42,3 +42,4 @@ C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\Memo
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows7.0\MemoryMaster.csproj.AssemblyReference.cache
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows7.0\Resources\Styles.baml
 C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows7.0\MemoryMa.17002B98.Up2Date
+C:\Users\Dejan\Documents\Interakcija covjek racunar\HCI Projektni zadatak 2\MemoryMaster\MemoryMaster\obj\Debug\net8.0-windows7.0\Resources\Config.baml
