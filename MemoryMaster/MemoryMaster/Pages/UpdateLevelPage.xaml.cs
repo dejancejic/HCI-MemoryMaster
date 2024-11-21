@@ -60,7 +60,12 @@ namespace MemoryMaster.Pages
                 this.Close();
                 return;
             }
-            
+            if (images.Count() < App.minImages)
+            {
+                MessageBox.Show((string)FindResource("notEnoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
+                return;
+            }
+
             level.Base64Images = images;
             level.Name = textBox.Text;
             score.Name= textBox.Text;
@@ -160,6 +165,11 @@ namespace MemoryMaster.Pages
 
         private void PickImageBtnClick(object sender, RoutedEventArgs e)
         {
+            if (images.Count() ==App.maxImages)
+            {
+                MessageBox.Show((string)FindResource("enoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
+                return;
+            }
             modified = true;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";

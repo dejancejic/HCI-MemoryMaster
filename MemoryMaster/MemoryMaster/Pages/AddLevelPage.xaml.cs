@@ -136,12 +136,12 @@ namespace MemoryMaster.Pages
                 MessageBox.Show((string)FindResource("levelNameEmpty"),(string)FindResource("errorText"),MessageBoxButton.OK);
                 return;
             }
-            if (list.Count<2)
+            if (list.Count<App.minImages)
             {
                 MessageBox.Show((string)FindResource("notEnoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
                 return;
             }
-            if (list.Count == 20)
+            if (list.Count == App.maxImages)
             {
                 MessageBox.Show((string)FindResource("enoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
                 return;

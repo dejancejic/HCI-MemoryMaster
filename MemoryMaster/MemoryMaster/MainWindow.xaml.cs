@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MemoryMaster
 {
@@ -17,13 +18,24 @@ namespace MemoryMaster
         public MainWindow()
         {
             InitializeComponent();
+            
             enBtn.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
 
+        private void StartAnimation()
+        {
+            loadingLbl.Visibility = Visibility.Visible;
+            progressBar.Visibility=Visibility.Visible;
+        }
+       
+        private void StopAnimation()
+        {
+                loadingLbl.Visibility = Visibility.Hidden;
+                progressBar.Visibility = Visibility.Hidden;
+        }
 
-
-        private void languageButton_Click(object sender, RoutedEventArgs e)
+                private void languageButton_Click(object sender, RoutedEventArgs e)
         {
             if (sender != null)
             {
@@ -71,9 +83,14 @@ namespace MemoryMaster
             this.Show();
         }
 
-        private void StartGameBtnClick(object sender, RoutedEventArgs e)
+        private async void StartGameBtnClick(object sender, RoutedEventArgs e)
         {
+            StartAnimation();
+            
+            await Task.Delay(new Random().Next(1000,2000));
             NavigateNextPage(new ChooseLevelPage());
+           
+            StopAnimation();
         }
 
         private void addLevelBtnClick(object sender, RoutedEventArgs e)
@@ -81,9 +98,12 @@ namespace MemoryMaster
             NavigateNextPage(new AddLevelPage());
         }
 
-        private void MyLevelsBtnClick(object sender, RoutedEventArgs e)
+        private async void MyLevelsBtnClick(object sender, RoutedEventArgs e)
         {
+            StartAnimation();
+            await Task.Delay(new Random().Next(1000, 2000));
             NavigateNextPage(new MyLevelsPage());
+            StopAnimation();
         }
     }
 }

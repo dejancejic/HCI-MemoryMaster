@@ -97,7 +97,7 @@ namespace MemoryMaster.Pages
         private void LevelNameTextChanged(object sender, System.EventArgs e) {
 
             string text = textBox.Text;
-            //TODO FILTERING(check when there is more)
+            //FILTERING
 
             List<StackPanel> toRemove = new List<StackPanel>();
             foreach (var comp in levelsStackPanel.Children)
@@ -155,8 +155,8 @@ namespace MemoryMaster.Pages
                 Button levelButton = new Button
                 {
                     Content = level.Name,
-                    Width = 140,
-                    Height = 30,
+                    Width = 160,
+                    Height = 35,
                     Tag = index,
                     Margin = new Thickness(5),
                     Style = (Style)FindResource("RoundedButtonStyle")
@@ -214,8 +214,11 @@ namespace MemoryMaster.Pages
 
             clickedButton!.Style = (Style)FindResource("SelectedButtonStyle");
             selectedButton = clickedButton;
+            int index = (int)clickedButton.Tag;
+            resultLbl.Content = scoresList[index].HighScore;
+            timeLeftLbl.Content = scoresList[index].BestTime;
+            levelNameLbl.Content = scoresList[index].Name;
 
-         
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)

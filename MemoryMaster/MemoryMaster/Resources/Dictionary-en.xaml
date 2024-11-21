@@ -39,6 +39,7 @@
     <System:String x:Key="myLevels">MemoryMaster - My Levels</System:String>
     <System:String x:Key="sureToDeleteLevel">Are you sure you want to delete this level?</System:String>
     <System:String x:Key="confirmation">Confirmation</System:String>
+    <System:String x:Key="loading">Loading</System:String>
     <System:String x:Key="updateLevel">MemoryMaster - Update Level</System:String>
     <System:String x:Key="updateName">Update Level Name:</System:String>
     <System:String x:Key="update">Update Level</System:String>

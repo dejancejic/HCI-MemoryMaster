@@ -37,9 +37,11 @@ namespace MemoryMaster.Pages
 
         public ChooseLevelPage()
         {
+
             InitializeComponent();
+
             buttonClicked = Level1Btn;
-            DataContext = userScores;
+            DataContext = this;
             levels = IOUtil.ReadLevelData(myLevel:false);
             userScores = IOUtil.ReadUserData(myLevel:false);
 
@@ -98,6 +100,7 @@ namespace MemoryMaster.Pages
         private void SecondWindow_Closed(object sender, System.EventArgs e)
         {
             this.Show();
+            OnPropertyChanged(nameof(UserScores));
             showLevelInfoBtnClick(buttonClicked, new RoutedEventArgs());
         }
 

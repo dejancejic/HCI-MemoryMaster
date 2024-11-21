@@ -24,6 +24,10 @@ namespace MemoryMaster.Pages
 {
     public partial class LevelPage
     {
+       private static double correctFactor = 2.5;
+        private static double incorrectFactor = 0.5;
+        private static int baseScoreIncrement = 1000;
+
         private LevelModel levelInfo;
         private UserScoreModel scores;
         private DispatcherTimer uiTimer;
@@ -270,12 +274,11 @@ namespace MemoryMaster.Pages
                     TimeSpan elapsed = stopwatch.Elapsed;
                     int millis = elapsed.Milliseconds;
 
-                    int baseScoreIncrement = 100;
+                    
 
                     double timeFactor = 1.0 / (elapsed.TotalSeconds + 1);
 
-                    double correctFactor = 2.5;  
-                    double incorrectFactor = 0.5;
+                    
                     int scoreIncrement =
                         (int)(baseScoreIncrement * timeFactor * 
                         (countCorrect * correctFactor - countIncorrect * incorrectFactor));
@@ -283,8 +286,9 @@ namespace MemoryMaster.Pages
                         scoreIncrement = 0;
 
                     score += scoreIncrement;
-
+                    
                     countCorrect++;
+                    countIncorrect = 0;
                 }
                 else
                 {

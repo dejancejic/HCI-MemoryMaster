@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-        Title="{DynamicResource myLevels}" Height="400" Width="600" Icon="/Resources/logoIcon.png" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource myLevels}" Height="400" Width="650" Icon="/Resources/logoIcon.png" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelsImage.jpg"/>
     </Window.Background>
@@ -20,26 +20,26 @@
     <Grid>
         
             <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="10,10,338,324" TextChanged="LevelNameTextChanged"/>
-        <Button x:Name="mainMenuBtn"  Style="{StaticResource MainMenuButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left"  Margin="29,310,0,0" VerticalAlignment="Top"  Click="MainMenuBtnClick" />
+        <Button x:Name="mainMenuBtn"  Style="{StaticResource MainMenuButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left"  Margin="29,315,0,0" VerticalAlignment="Top"  Click="MainMenuBtnClick" />
         <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,60,0,0" Width="250" Height="250" Grid.Column="1">
             <Grid>
-                <Rectangle Fill="#FFF7F7F7" Opacity="0.3" RadiusX="15" RadiusY="15" Margin="0, 0,0,10"/>
-                <Button x:Name="playBtn" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center"  Margin="0,190,0,0" VerticalAlignment="Top" Background="#FF071241" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" Click="PlayLevelBtnClick" Foreground="White" Panel.ZIndex="2"/>
+                <Rectangle Fill="#FFF7F7F7" Opacity="0.3" RadiusX="15" RadiusY="15" Margin="27,0,-59,10"/>
+                <Button x:Name="playBtn" Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center"  Margin="85,190,0,0" VerticalAlignment="Top" Background="#FF071241" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" Click="PlayLevelBtnClick" Foreground="White" Panel.ZIndex="2"/>
                
-                <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="10,90,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="resultLbl" Content="0" Margin="150,90,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="levelNameLbl" Content="Introduction" Margin="10,20,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="25"/>
-                <Label x:Name="bestTimeLbl" Content="{DynamicResource bestTime}" Margin="10,130,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="timeLeftLbl" Content="0" Margin="150,130,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="40,90,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="resultLbl" Content="0" Margin="175,90,-45,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+                <Label x:Name="levelNameLbl" Content="" Margin="30,20,-50,124" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="25"/>
+                <Label x:Name="bestTimeLbl" Content="{DynamicResource bestTime}" Margin="40,130,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="timeLeftLbl" Content="0" Margin="175,130,-41,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
             </Grid>
         </Border>
 
         <Border CornerRadius="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,60,0,0" Width="250" Height="250" Grid.Column="1">
             <Grid>
 
-                <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0, 0,0,10"/>
-                <Label x:Name="lblLevels" Content="{DynamicResource myLevel}" Margin="70, 0,-19,-8" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,39,0,10">
+                <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,0,-10,10"/>
+                <Label x:Name="lblLevels" Content="{DynamicResource myLevel}" Margin="75, 0,-19,-8" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,39,0,10" HorizontalAlignment="Left" Width="281">
                     <StackPanel Name="levelsStackPanel">
 
 

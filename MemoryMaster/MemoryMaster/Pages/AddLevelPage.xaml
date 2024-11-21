@@ -34,7 +34,7 @@
             <Grid>
                 <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,-20,0,18"/>
                 <Label x:Name="levelNumberLbl" Content="{DynamicResource imagesPicked}" Margin="50,-15,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,20,0,20">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,20,-5,20">
                     <StackPanel Name="ImagesStackPanel">
 
 

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         xmlns:local="clr-namespace:MemoryMaster.Pages" xmlns:model="clr-namespace:MemoryMaster.Model" d:DataContext="{d:DesignInstance Type=model:UserScoreModel}"
         mc:Ignorable="d"
         Title="{DynamicResource chooseLevel}" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
@@ -44,10 +44,10 @@
                 <Button x:Name="playBtn"  Style="{StaticResource PlayButtonStyle}" Content="{DynamicResource play}" HorizontalAlignment="Center"  Margin="0,190,0,0" VerticalAlignment="Top"  Click="PlayLevelBtnClick" Panel.ZIndex="2"/>
                 <Button x:Name="mainMenuBtn"  Style="{StaticResource MainMenuButtonStyle}" Content="{DynamicResource mainMenu}" HorizontalAlignment="Left"  Margin="-288,218,0,0" VerticalAlignment="Top"  Click="MainMenuBtnClick"/>
                 <Label x:Name="highScoreLbl" Content="{DynamicResource highScore}" Margin="10,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="resultLbl" Content="{Binding [0].HighScore}" Margin="150,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="levelNameLbl" Content="Introduction" Margin="10,35,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="25"/>
+                <Label x:Name="resultLbl" Content="{Binding [0].HighScore, UpdateSourceTrigger=PropertyChanged}" Margin="150,110,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="levelNameLbl" Content="" Margin="7,35,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="22"/>
                 <Label x:Name="bestTimeLbl" Content="{DynamicResource bestTime}" Margin="10,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
-                <Label x:Name="timeLeftLbl" Content="{Binding [0].BestTime}" Margin="150,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
+                <Label x:Name="timeLeftLbl" Content="{Binding [0].BestTime,UpdateSourceTrigger=PropertyChanged}" Margin="150,140,8,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="15"/>
             </Grid>
         </Border>
 
