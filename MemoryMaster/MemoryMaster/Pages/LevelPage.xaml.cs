@@ -45,7 +45,7 @@ namespace MemoryMaster.Pages
         private int countIncorrect = 0;
 
         //if coordinates are taken the value will be true!
-        private static Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
+        private  Dictionary<string, bool> COORDINATES = new Dictionary<string, bool> {
             {"30,20",false},
             {"170,20",false},
             {"310,20",false},

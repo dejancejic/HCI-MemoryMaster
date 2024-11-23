@@ -73,48 +73,52 @@ namespace MemoryMaster.Pages
             }
         }
 
-        private void CreateImageRectangle(string fileName,string filePath)
+        private void CreateImageRectangle(string fileName, string filePath)
         {
             Border imageBorder = new Border
             {
                 Background = Brushes.Transparent,
                 CornerRadius = new CornerRadius(10),
-                Margin = new Thickness(5),
+                Margin = new Thickness(10,10,20,0),
                 Padding = new Thickness(2),
-                Tag = filePath
-                
+                Tag = filePath,
+                HorizontalAlignment=HorizontalAlignment.Left,
             };
 
             Grid grid = new Grid();
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
-            Label imageLabel = new Label
+            Image image = new Image
             {
-                Content = fileName,
+                Source = new BitmapImage(new Uri(filePath)),
                 VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(2) 
+                Margin = new Thickness(2),
+                Stretch = Stretch.UniformToFill,
+                Width = 80, 
+                Height = 80,
+                Clip = new RectangleGeometry(new Rect(0, 0, 80, 80), 10, 10)
             };
-            Grid.SetColumn(imageLabel, 0);
+            Grid.SetColumn(image, 0);
 
             Button removeButton = new Button
             {
                 Style = (Style)FindResource("DeleteIconButtonStyle"),
-                Width = 28,
-                Height = 28,
-                Margin = new Thickness(0, 0, 2, 0) 
+                Width = 35,
+                Height = 35,
+                Margin = new Thickness(20, 0, 2, 0)
             };
             removeButton.Click += (s, e) => RemoveImageRectangle(imageBorder);
             Grid.SetColumn(removeButton, 1);
 
-            
-
-            grid.Children.Add(imageLabel);
+            grid.Children.Add(image);
             grid.Children.Add(removeButton);
 
             imageBorder.Child = grid;
             ImagesStackPanel.Children.Add(imageBorder);
         }
+
+
 
 
 

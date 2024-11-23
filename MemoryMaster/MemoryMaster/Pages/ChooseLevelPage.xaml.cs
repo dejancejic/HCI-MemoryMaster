@@ -96,6 +96,7 @@ namespace MemoryMaster.Pages
             window.Closed += SecondWindow_Closed;
             window.Show(); this.Hide();
             this.Hide();
+
         }
         private void SecondWindow_Closed(object sender, System.EventArgs e)
         {

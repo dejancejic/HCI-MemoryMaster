@@ -17,12 +17,14 @@
             <ColumnDefinition Width="339*"/>
         </Grid.ColumnDefinitions>
 
+
         <ProgressBar Name="progressBar" Visibility="Hidden"
-IsIndeterminate="True" Foreground="White" Width="25" Height="25"
+IsIndeterminate="True" Foreground="White"
 Style="{StaticResource MaterialDesignCircularProgressBar}" 
-Value="0" Margin="29,215,185,71" Grid.Column="1"/>
-        <Button x:Name="startGameBtn" Content="{DynamicResource startGame}" HorizontalAlignment="Left" Margin="114,74,0,0" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Grid.Column="1" Click="StartGameBtnClick" />
-        <Button x:Name="addLevelBtn" Content="{DynamicResource newLevel}" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Grid.Column="1" Margin="114,169,0,0" Click="addLevelBtnClick" />
+Value="0" Margin="115,241,262,49" Grid.Column="1"/>
+        <Button x:Name="startGameBtn" Content="{DynamicResource startGame}" HorizontalAlignment="Left" Margin="114,100,0,0" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Grid.Column="1" Click="StartGameBtnClick" />
+        <Button x:Name="addLevelBtn" Content="{DynamicResource newLevel}" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Grid.Column="1" Margin="114,200,0,0" Click="addLevelBtnClick" />
+        <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Margin="114,150,0,0" Grid.Column="1" Click="MyLevelsBtnClick" />
         <Grid Margin="301,240,10,18" Grid.Column="1">
             <Label Grid.Column="1" Content="{DynamicResource language}" Style="{StaticResource LabelH2StyleWhite}" HorizontalAlignment="Center" Margin="0,-10,0,0" VerticalAlignment="Top" />
         </Grid>
@@ -41,10 +43,11 @@ Value="0" Margin="29,215,185,71" Grid.Column="1"/>
 
             <Image Source="/Resources/infoIcon.png" Width="30" Height="30" />
         </Button>
-        <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Margin="114,122,0,0" Grid.Column="1" Click="MyLevelsBtnClick" />
 
 
-        <Label Name="loadingLbl" Visibility="Hidden" Grid.Column="1" Content="{DynamicResource loading}" Style="{StaticResource LabelH2StyleWhite}" Margin="145,212,141,58"  FontSize="18" />
 
+        <Label Name="loadingLbl" Visibility="Hidden" Grid.Column="1" Content="{DynamicResource loading}" Style="{StaticResource LabelH2StyleWhite}" Margin="146,234,140,10"  FontSize="18" />
+
+        <Image Source="/Resources/titleImage.png" Height="100" Margin="25,-4,2,238" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

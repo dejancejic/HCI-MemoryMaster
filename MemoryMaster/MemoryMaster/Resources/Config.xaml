@@ -4,8 +4,8 @@
 
     <System:String x:Key="maxImages">12</System:String>
     <System:String x:Key="minImages">2</System:String>
-    <System:String x:Key="levelsPath">levels.txt</System:String>
-    <System:String x:Key="localLevelsPath">localLevels.txt</System:String>
-    <System:String x:Key="userDataPath">userData.txt</System:String>
-    <System:String x:Key="localUserDataPath">localUserData.txt</System:String>
+    <System:String x:Key="levelsPath">../../../Resources/Data/levels.txt</System:String>
+    <System:String x:Key="localLevelsPath">../../../Resources/Data/localLevels.txt</System:String>
+    <System:String x:Key="userDataPath">../../../Resources/Data/userData.txt</System:String>
+    <System:String x:Key="localUserDataPath">../../../Resources/Data/localUserData.txt</System:String>
 </ResourceDictionary>

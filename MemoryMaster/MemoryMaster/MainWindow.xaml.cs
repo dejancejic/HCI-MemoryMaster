@@ -87,7 +87,7 @@ namespace MemoryMaster
         {
             StartAnimation();
             
-            await Task.Delay(new Random().Next(1000,2000));
+            await Task.Delay(new Random().Next(500,1500));
             NavigateNextPage(new ChooseLevelPage());
            
             StopAnimation();
@@ -101,7 +101,7 @@ namespace MemoryMaster
         private async void MyLevelsBtnClick(object sender, RoutedEventArgs e)
         {
             StartAnimation();
-            await Task.Delay(new Random().Next(1000, 2000));
+            await Task.Delay(new Random().Next(500, 1500));
             NavigateNextPage(new MyLevelsPage());
             StopAnimation();
         }

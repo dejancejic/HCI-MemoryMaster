@@ -11,12 +11,17 @@
   <ItemGroup>
     <None Remove="Resources\backgroundImage.jpg" />
     <None Remove="Resources\congradulationsImage.jpg" />
+    <None Remove="Resources\Data\levels.txt" />
+    <None Remove="Resources\Data\localLevels.txt" />
+    <None Remove="Resources\Data\localUserData.txt" />
+    <None Remove="Resources\Data\userData.txt" />
     <None Remove="Resources\englishIcon.png" />
     <None Remove="Resources\infoIcon.png" />
     <None Remove="Resources\levelBackground.jpg" />
     <None Remove="Resources\levelsImage.jpg" />
     <None Remove="Resources\logoIcon.png" />
     <None Remove="Resources\serbianIcon.png" />
+    <None Remove="Resources\titleImage.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,12 +32,17 @@
   <ItemGroup>
     <Resource Include="Resources\backgroundImage.jpg" />
     <Resource Include="Resources\congradulationsImage.jpg" />
+    <Resource Include="Resources\Data\levels.txt" />
+    <Resource Include="Resources\Data\localLevels.txt" />
+    <Resource Include="Resources\Data\localUserData.txt" />
+    <Resource Include="Resources\Data\userData.txt" />
     <Resource Include="Resources\englishIcon.png" />
     <Resource Include="Resources\infoIcon.png" />
     <Resource Include="Resources\levelBackground.jpg" />
     <Resource Include="Resources\levelsImage.jpg" />
     <Resource Include="Resources\logoIcon.png" />
     <Resource Include="Resources\serbianIcon.png" />
+    <Resource Include="Resources\titleImage.png" />
   </ItemGroup>
 
 </Project>
