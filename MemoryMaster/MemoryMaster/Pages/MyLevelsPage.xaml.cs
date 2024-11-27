@@ -74,24 +74,24 @@ namespace MemoryMaster.Pages
         private void UpdateWindow_Closed(object sender, System.EventArgs e)
         {
             this.Show();
-            int index = levelsList.IndexOf(modelTagDictionary[tagUpdate]);
-            foreach(var panel in stackPanels)
-            { 
-                if ((int)panel.Tag == tagUpdate)
-                {
-                    foreach(var btn in  panel.Children)
-                    {
-                        if ((int)(btn as Button).Tag == tagUpdate)
-                        {
-                            Button b = btn as Button;
-                            b.Content = scoresList[index].Name;
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-            levelNameLbl.Content = scoresList[index].Name;
+            //int index = levelsList.IndexOf(modelTagDictionary[tagUpdate]);
+            //foreach(var panel in stackPanels)
+            //{ 
+            //    if ((int)panel.Tag == tagUpdate)
+            //    {
+            //        foreach(var btn in  panel.Children)
+            //        {
+            //            if ((int)(btn as Button).Tag == tagUpdate)
+            //            {
+            //                Button b = btn as Button;
+            //                b.Content = scoresList[index].Name;
+            //                break;
+            //            }
+            //        }
+            //        break;
+            //    }
+            //}
+            //levelNameLbl.Content = scoresList[index].Name;
 
         }
         private void LevelNameTextChanged(object sender, System.EventArgs e) {
@@ -128,11 +128,6 @@ namespace MemoryMaster.Pages
         private void SecondWindow_Closed(object sender, System.EventArgs e)
         {
             this.Show();
-            int index = CalculateIndex();
-            
-            resultLbl.Content = scoresList[index].HighScore;
-            timeLeftLbl.Content = scoresList[index].BestTime;
-            levelNameLbl.Content = scoresList[index].Name;
         }
 
         private Button selectedButton;
@@ -161,7 +156,10 @@ namespace MemoryMaster.Pages
                     Margin = new Thickness(5),
                     Style = (Style)FindResource("RoundedButtonStyle")
                 };
-                
+                var nameBinding = new Binding($"[{index}].Name")
+                { Source = scoresList, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged };
+
+                levelButton.SetBinding(ContentProperty, nameBinding);
                 levelButton.Click += LevelButton_Click;
 
                 if (index == 0)
@@ -198,6 +196,8 @@ namespace MemoryMaster.Pages
 
                 
                 levelsStackPanel.Children.Add(buttonPanel);
+                if (index == 0)
+                    levelButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 index++;
             }
         }
@@ -215,9 +215,18 @@ namespace MemoryMaster.Pages
             clickedButton!.Style = (Style)FindResource("SelectedButtonStyle");
             selectedButton = clickedButton;
             int index = (int)clickedButton.Tag;
-            resultLbl.Content = scoresList[index].HighScore;
-            timeLeftLbl.Content = scoresList[index].BestTime;
-            levelNameLbl.Content = scoresList[index].Name;
+
+            var highScoreBinding = new Binding($"[{index}].HighScore")
+            { Source = scoresList, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged };
+            var bestTimeBinding = new Binding($"[{index}].BestTime")
+            { Source = scoresList, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged };
+            var nameBinding = new Binding($"[{index}].Name")
+            { Source = scoresList, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged };
+
+            
+            resultLbl.SetBinding(ContentProperty, highScoreBinding);
+            timeLeftLbl.SetBinding(ContentProperty, bestTimeBinding);
+            levelNameLbl.SetBinding(ContentProperty,nameBinding);
 
         }
 

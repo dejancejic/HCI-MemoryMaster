@@ -13,12 +13,18 @@ namespace MemoryMaster.Model
         
         private double _highScore;
         private string _bestTime;
+        private string _name;
 
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get { return _name; }
+            set
+            {
+                _name = value; OnPropertyChanged(nameof(Name));
+            }
+        }
 
         [JsonPropertyName("bestTime")]
         public string BestTime  { get { return _bestTime; } 

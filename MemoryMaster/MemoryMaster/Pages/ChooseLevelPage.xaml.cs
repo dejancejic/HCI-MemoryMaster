@@ -60,8 +60,14 @@ namespace MemoryMaster.Pages
                 return;
             }
             levelLbl.Content= text;
-            resultLbl.Content = userScores[index].HighScore;
-            timeLeftLbl.Content = userScores[index].BestTime;
+
+            var highScoreBinding = new Binding($"[{index}].HighScore")
+            { Source = userScores, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged };
+            var bestTimeBinding = new Binding($"[{index}].BestTime")
+            { Source = userScores, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged };
+
+            resultLbl.SetBinding(ContentProperty, highScoreBinding); 
+            timeLeftLbl.SetBinding(ContentProperty, bestTimeBinding);
             levelNameLbl.Content = userScores[index].Name;
             selectedLevelIndex = index;
 
@@ -102,7 +108,7 @@ namespace MemoryMaster.Pages
         {
             this.Show();
             OnPropertyChanged(nameof(UserScores));
-            showLevelInfoBtnClick(buttonClicked, new RoutedEventArgs());
+            //showLevelInfoBtnClick(buttonClicked, new RoutedEventArgs());
         }
 
         public event PropertyChangedEventHandler PropertyChanged; 
