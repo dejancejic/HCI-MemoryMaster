@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-         Title="{DynamicResource updateLevel}" Height="650" Width="550" Icon="/Resources/logoIcon.png" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource updateLevel}" WindowState="Maximized" Height="650" Width="550" MinHeight="650" MinWidth="550" Icon="/Resources/logoIcon.png" ResizeMode="CanResize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelsImage.jpg"/>
     </Window.Background>
@@ -16,24 +16,24 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid>
-        <Button Content="{DynamicResource update}" Style="{StaticResource UpdatePageButtonsStyle}"  HorizontalAlignment="Center" Height="38" Margin="0,550,0,0" VerticalAlignment="Top" Width="226" Click="UpdateBtnClick" RenderTransformOrigin="0.478,1.738" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-        <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="190,31,70,544" TextChanged="LevelNameTextChanged" />
-        <Label Content="{DynamicResource updateName}" HorizontalAlignment="Left"  Margin="0,35,0,0" VerticalAlignment="Top"  Foreground="White" FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"/>
 
-        <Border CornerRadius="15" HorizontalAlignment="Center" Margin="0,40,0,0" Width="450" Height="400" Grid.Column="1">
-            <Grid>
-                <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,-20,0,10"/>
-                <Label x:Name="updateImages" Content="{DynamicResource updateImages}" HorizontalAlignment="Center" Margin="0,-15,0,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
-                <Button Content="{DynamicResource pickNewImage}" HorizontalAlignment="Left" Margin="244,158,0,208"  Style="{StaticResource UpdatePageButtonsStyle}"   Click="PickImageBtnClick" Panel.ZIndex="2" />
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,30,0,10">
-                    <StackPanel Name="imagesStackPanel">
+    <Viewbox Stretch="Uniform">
+        <Grid Width="536" Height="609">
+            <Button Content="{DynamicResource update}" Style="{StaticResource UpdatePageButtonsStyle}" HorizontalAlignment="Center" Height="38" Margin="0,550,0,0" VerticalAlignment="Top" Width="226" Click="UpdateBtnClick" RenderTransformOrigin="0.478,1.738" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
+            <TextBox x:Name="textBox" Style="{StaticResource RoundedTextBoxStyle}" Margin="190,31,70,544" TextChanged="LevelNameTextChanged" />
+            <Label Content="{DynamicResource updateName}" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"/>
 
-
-                    </StackPanel>
-                </ScrollViewer>
-            </Grid>
-        </Border>
-
-    </Grid>
+            <Border CornerRadius="15" HorizontalAlignment="Center" Margin="0,40,0,0" Width="450" Height="400" Grid.Column="1">
+                <Grid>
+                    <Rectangle Fill="#FFF7F7F7" Opacity="0.35" RadiusX="15" RadiusY="15" Margin="0,-20,0,10"/>
+                    <Label x:Name="updateImages" Content="{DynamicResource updateImages}" HorizontalAlignment="Center" Margin="0,-15,0,0" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="20"/>
+                    <Button Content="{DynamicResource pickNewImage}" HorizontalAlignment="Left" Margin="244,158,0,208" Style="{StaticResource UpdatePageButtonsStyle}" Click="PickImageBtnClick" Panel.ZIndex="2" />
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,30,0,10">
+                        <StackPanel Name="imagesStackPanel">
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Viewbox>
 </Window>

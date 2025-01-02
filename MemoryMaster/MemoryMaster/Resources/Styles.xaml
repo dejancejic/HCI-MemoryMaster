@@ -48,9 +48,9 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="Background" Value="#FF79C5FF" />
-        <Setter Property="Width" Value="130" />
+        
         <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="10" />
-        <Setter Property="Height" Value="32" />
+  
         <Setter Property="Margin" Value="10" />
         <Setter Property="materialDesign:ShadowAssist.ShadowAnimationDuration" Value="0:0:0.5"/>
     </Style>
@@ -111,8 +111,7 @@
 
 
     <Style x:Key="RoundedButtonStyle" TargetType="Button">
-        <Setter Property="Width" Value="50" />
-        <Setter Property="Height" Value="50" />
+        
         <Setter Property="FontSize" Value="16" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="#FF071241" />
@@ -129,9 +128,18 @@
     </Style>
 
     <Style x:Key="SelectedButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
-        <Setter Property="Background" Value="#FFB0B0E0" />
+        <Setter Property="Background" Value="#FFB0B0F0" />
         <Setter Property="BorderBrush" Value="White" />
         <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2" CornerRadius="12">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 

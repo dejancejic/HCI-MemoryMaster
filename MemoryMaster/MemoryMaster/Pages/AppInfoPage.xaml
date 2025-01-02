@@ -10,33 +10,13 @@
         <ImageBrush ImageSource="../Resources/backgroundImage.jpg"/>
     </Window.Background>
     <Grid>
+        
         <ScrollViewer VerticalScrollBarVisibility="Hidden">
-            <TextBlock x:Name="ScrollingText" TextWrapping="Wrap" FontSize="16" Foreground="White" VerticalAlignment="Bottom" Margin="25">
+            <TextBlock x:Name="ScrollingText" TextWrapping="Wrap" FontSize="16" Foreground="White" VerticalAlignment="Bottom" Text="{DynamicResource appInfo}" Margin="25">
                 <TextBlock.RenderTransform>
                     <TranslateTransform Y="0" />
                 </TextBlock.RenderTransform>
-                Igra pogađanja slika (MemoryMaster)
-            <LineBreak />
-            <LineBreak />
-    MemoryMaster je igra u kojoj korisnik na osnovu određenog broja kartica sa slikama na sebi, 
-                pokušava da pronađe odgovarajući par istih slika i tako otkriva kartice sve dok ne otkrije svaku kombinaciju.
-                <LineBreak />
-                
-    Sama aplikacija sadrži nekoliko proizvoljnih nivoa, a kreću se od najlakšeg do najtežeg. 
-                Pored toga postoji i mogućnost da korisnik sam napravi svoj nivo, odnosno da izabere svoje proizvoljne slike za svoj novi nivo.
-                Za korisnički definisane nivoe, pored prikaza svih i pretrage po imenu, postoji i mogućnost izmjene slika (uklanjanje, ažuriranje postojeće kao i dodavanje novih slika) te imena nivoa. 
-                <LineBreak />
-                Za svaki nivo prikazuje se vrijeme prelaska datog nivoa, a po završetku nivoa prikazuje se i broj bodova koji je korisnik ostvario na datom nivou u zavisnosti od vremena prelaska i broja tačno pogođenih parova te broja promašaja. 
-                <LineBreak />
-                Pored toga, za svaki nivo se prikazuje i najbolji rezultat koji je korisnik ostvario na svakom od nivoa, kako u predefinisanim nivoima u aplikaciji tako i u sopstvenim nivoima. 
-                <LineBreak />
-                Sve slike su raspoređene sasvim slučajno u svakom nivou i pri svakom novom pokretanju istog.
-                <LineBreak />
-                <LineBreak />
-                Aplikacija je kreirana u novembru 2024. godine.
-                <LineBreak />
-                <LineBreak />
-                Autor: Dejan Ćejić
+              
             </TextBlock>
         </ScrollViewer>
         <Grid.Triggers>

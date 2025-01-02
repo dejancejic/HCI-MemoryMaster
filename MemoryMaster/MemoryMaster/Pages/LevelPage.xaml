@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemoryMaster.Pages"
         mc:Ignorable="d"
-        Title="MemoryMaster" Height="750" Width="1400" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
+        Title="MemoryMaster" Height="700" Width="1200" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Icon="/Resources/logoIcon.png">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/levelBackground.jpg"/>
     </Window.Background>
@@ -16,11 +16,16 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Canvas Name="MainCanvas">
-        <Label Content="{DynamicResource score}" HorizontalAlignment="Left" Height="45" Margin="1151,18,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
-        <Label Content="{DynamicResource time}" HorizontalAlignment="Left" Height="45" Margin="1151,75,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
-        <Label Name="timeLbl" Content="00:00,00" HorizontalAlignment="Left" Height="45" Margin="1251,75,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
-        <Label Name="scoreLbl"  Content="0" HorizontalAlignment="Left" Height="45" Margin="1251,18,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
-        <Button Content="{DynamicResource start}" Style="{StaticResource PlayButtonGameStyle}"  Canvas.Left="1147" Canvas.Top="147"  HorizontalAlignment="Left" VerticalAlignment="Center" Click="StartGameBtnClicked"/>
-    </Canvas>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1400" Height="750">
+            <Canvas Name="MainCanvas">
+                <Label Content="{DynamicResource score}" HorizontalAlignment="Left" Height="45" Margin="1151,18,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                <Label Content="{DynamicResource time}" HorizontalAlignment="Left" Height="45" Margin="1151,75,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                <Label Name="timeLbl" Content="00:00,00" HorizontalAlignment="Left" Height="45" Margin="1251,75,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                <Label Name="scoreLbl" Content="0" HorizontalAlignment="Left" Height="45" Margin="1251,18,0,0" VerticalAlignment="Top" Width="123" FontFamily="Comic Sans MS" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                <Button Content="{DynamicResource start}" Style="{StaticResource PlayButtonGameStyle}" Canvas.Left="1147" Canvas.Top="147" HorizontalAlignment="Left" VerticalAlignment="Center" Click="StartGameBtnClicked"/>
+            </Canvas>
+        </Grid>
+    </Viewbox>
 </Window>

@@ -70,9 +70,11 @@ namespace MemoryMaster
         }
         private void NavigateNextPage(Window window)
         {
+            Overlay.Visibility = Visibility.Visible;
             window.Closed += SecondWindow_Closed;
             window.Show(); this.Hide();
             this.Hide();
+            Overlay.Visibility = Visibility.Collapsed;
         }
 
         private void infoBtn_Click(object sender, RoutedEventArgs e)
@@ -85,12 +87,14 @@ namespace MemoryMaster
 
         private async void StartGameBtnClick(object sender, RoutedEventArgs e)
         {
+            Overlay.Visibility = Visibility.Visible;
             StartAnimation();
             
             await Task.Delay(new Random().Next(500,1500));
             NavigateNextPage(new ChooseLevelPage());
            
             StopAnimation();
+            Overlay.Visibility = Visibility.Collapsed;
         }
 
         private void addLevelBtnClick(object sender, RoutedEventArgs e)
@@ -100,10 +104,12 @@ namespace MemoryMaster
 
         private async void MyLevelsBtnClick(object sender, RoutedEventArgs e)
         {
+            Overlay.Visibility = Visibility.Visible;
             StartAnimation();
             await Task.Delay(new Random().Next(500, 1500));
             NavigateNextPage(new MyLevelsPage());
             StopAnimation();
+            Overlay.Visibility = Visibility.Collapsed;
         }
     }
 }

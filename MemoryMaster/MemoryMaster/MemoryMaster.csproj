@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\background.jpg" />
     <None Remove="Resources\backgroundImage.jpg" />
     <None Remove="Resources\congradulationsImage.jpg" />
     <None Remove="Resources\Data\levels.txt" />
@@ -21,6 +22,7 @@
     <None Remove="Resources\levelsImage.jpg" />
     <None Remove="Resources\logoIcon.png" />
     <None Remove="Resources\serbianIcon.png" />
+    <None Remove="Resources\slika.jpg" />
     <None Remove="Resources\titleImage.png" />
   </ItemGroup>
 
@@ -30,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\background.jpg" />
     <Resource Include="Resources\backgroundImage.jpg" />
     <Resource Include="Resources\congradulationsImage.jpg" />
     <Resource Include="Resources\Data\levels.txt" />

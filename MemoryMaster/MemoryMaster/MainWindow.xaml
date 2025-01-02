@@ -5,49 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MemoryMaster" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="/Resources/logoIcon.png">
+        Title="MemoryMaster" Height="350" Width="500" MinHeight="350" MinWidth="500" WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized"
+        ResizeMode="CanResize" Icon="/Resources/logoIcon.png">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/backgroundImage.jpg"/>
+        <ImageBrush ImageSource="Resources/background.jpg"/>
     </Window.Background>
 
-
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="61*"/>
-            <ColumnDefinition Width="339*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-
-        <ProgressBar Name="progressBar" Visibility="Hidden"
-IsIndeterminate="True" Foreground="White"
-Style="{StaticResource MaterialDesignCircularProgressBar}" 
-Value="0" Margin="115,241,262,49" Grid.Column="1"/>
-        <Button x:Name="startGameBtn" Content="{DynamicResource startGame}" HorizontalAlignment="Left" Margin="114,100,0,0" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Grid.Column="1" Click="StartGameBtnClick" />
-        <Button x:Name="addLevelBtn" Content="{DynamicResource newLevel}" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Grid.Column="1" Margin="114,200,0,0" Click="addLevelBtnClick" />
-        <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" HorizontalAlignment="Left" VerticalAlignment="Top"  Style="{StaticResource StartMenuButtonsStyle}"  Margin="114,150,0,0" Grid.Column="1" Click="MyLevelsBtnClick" />
-        <Grid Margin="301,240,10,18" Grid.Column="1">
-            <Label Grid.Column="1" Content="{DynamicResource language}" Style="{StaticResource LabelH2StyleWhite}" HorizontalAlignment="Center" Margin="0,-10,0,0" VerticalAlignment="Top" />
-        </Grid>
+        <Grid x:Name="Overlay" Background="Transparent" Visibility="Collapsed" Grid.RowSpan="3" Grid.ColumnSpan="3" Panel.ZIndex="10" />
 
 
 
-        <Button x:Name="enBtn" Tag="en" Style="{StaticResource RoundedImageButtonStyle}" HorizontalAlignment="Left" Margin="313,258,0,0" VerticalAlignment="Top"  Click="languageButton_Click" Grid.Column="1">
-            <Image Source="Resources/englishIcon.png" Width="35" Height="35"/>
-        </Button>
-        <Button x:Name="srBtn" Tag="sr" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource RoundedImageButtonStyle}" HorizontalAlignment="Left" Margin="356,258,0,0" VerticalAlignment="Top"  Click="languageButton_Click" Grid.Column="1">
-            <Image Source="Resources/serbianIcon.png" Width="35" Height="35"/>
-        </Button>
+        <Viewbox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="190">
+            <Image Source="/Resources/titleImage.png" MinHeight="100" />
+        </Viewbox>
+
+        <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="250">
+            <StackPanel>
+                <Button x:Name="startGameBtn" Content="{DynamicResource startGame}" Style="{StaticResource StartMenuButtonsStyle}" Click="StartGameBtnClick" Margin="0,10" MaxHeight="40" MaxWidth="150"/>
+                <Button x:Name="addLevelBtn" Content="{DynamicResource newLevel}" Style="{StaticResource StartMenuButtonsStyle}" Click="addLevelBtnClick" Margin="0,10" MaxHeight="40" MaxWidth="150"/>
+                <Button x:Name="myLevelsBtn" Content="{DynamicResource myLevel}" Style="{StaticResource StartMenuButtonsStyle}" Click="MyLevelsBtnClick" Margin="0,10" MaxHeight="40" MaxWidth="150"/>
+            </StackPanel>
+        </Viewbox>
+
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+           
+            <Button x:Name="enBtn" Tag="en" Style="{StaticResource RoundedImageButtonStyle}" Click="languageButton_Click" Margin="0,0,10,0">
+                <Image Source="Resources/englishIcon.png" Width="35" Height="35"/>
+            </Button>
+            <Button x:Name="srBtn" Tag="sr" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource RoundedImageButtonStyle}" Click="languageButton_Click" Margin="0,0,10,0">
+                <Image Source="Resources/serbianIcon.png" Width="35" Height="35"/>
+            </Button>
+        </StackPanel>
+
         <Button x:Name="infoBtn" Tag="info" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                Style="{StaticResource RoundedImageButtonStyle}" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top"  Click="infoBtn_Click">
-
-            <Image Source="/Resources/infoIcon.png" Width="30" Height="30" />
+                Style="{StaticResource RoundedImageButtonStyle}" Click="infoBtn_Click" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="47" Width="45">
+            <Image Source="/Resources/infoIcon.png" Width="35" Height="35" />
         </Button>
-
-
-
-        <Label Name="loadingLbl" Visibility="Hidden" Grid.Column="1" Content="{DynamicResource loading}" Style="{StaticResource LabelH2StyleWhite}" Margin="146,234,140,10"  FontSize="18" />
-
-        <Image Source="/Resources/titleImage.png" Height="100" Margin="25,-4,2,238" Grid.ColumnSpan="2"/>
+    
+        
+        <ProgressBar Name="progressBar" Visibility="Hidden"
+                     IsIndeterminate="True" Foreground="White"
+                     Style="{StaticResource MaterialDesignCircularProgressBar}" 
+                     Value="0" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50 0 0 0"/>
+        <Label Name="loadingLbl" Visibility="Hidden" Grid.Row="2" Grid.Column="1" Content="{DynamicResource loading}" Style="{StaticResource LabelH2StyleWhite}" FontSize="18" Margin="-50 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

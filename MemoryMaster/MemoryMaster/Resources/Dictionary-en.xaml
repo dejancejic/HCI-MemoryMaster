@@ -48,4 +48,19 @@
     <System:String x:Key="success">Success</System:String>
     <System:String x:Key="searchLevel">Search by level name...</System:String>
     <System:String x:Key="language">Language:</System:String>
+    <System:String x:Key="appInfo" xml:space="preserve">
+    Image guessing game (MemoryMaster) &#x0a;&#x0a;
+    MemoryMaster is a game where the user, based on a certain number of cards with pictures on them, tries to find the matching pair of the same pictures and thus reveals the cards until they reveal every combination. 
+    &#x0a;
+    The application contains several arbitrary levels, ranging from the easiest to the hardest.
+        In addition, there is also the possibility for the user to create their own level, that is, to choose their own arbitrary pictures for their new level. For user-defined levels, in addition to displaying all and searching by name, there is also the possibility of changing pictures (removing, updating existing ones, and adding new pictures) and level names. 
+    &#x0a;
+    For each level, the time to complete the given level is displayed, and upon completion of the level, the number of points the user achieved on that level is displayed, depending on the time taken and the number of correctly guessed pairs and misses.
+    &#x0a;
+    In addition, for each level, the best result the user achieved on each level is displayed, both in predefined levels in the application and in their own levels.
+    &#x0a;
+    All pictures are randomly arranged in each level and each time the level is restarted. &#x0a;&#x0a; The application was created in November 2024.
+    &#x0a;&#x0a; Author: Dejan Ćejić
+</System:String>
+
 </ResourceDictionary>
