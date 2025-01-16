@@ -42,7 +42,7 @@ Na stranici za prikaz sopstvenih nivoa, moguće je izmjeniti date nivoe(ime i sl
 Na ovoj stranici korisnici mogu ažurirati slike, dodati nove, obrisati neke kao i promjeniti ime nivoa.
 
 ![image](https://github.com/user-attachments/assets/aacc8372-94f2-4344-9aa6-9b892f2711cb)
-<p align=center>Stranica za prikaz sopstvenih nivoa</p>
+<p align=center>Stranica za ažuriranje nivoa</p>
 
 ## Stranica za igranje izabranog nivoa
 Nakon izbora opcije za igranje nivoa, korisnik može da igra nivo. Ovdje se prvo mora pritisnuti dugme za igranje na stranici kako bi brojanje vremena i otkrivanje kartica moglo početi.
