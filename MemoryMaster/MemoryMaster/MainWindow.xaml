@@ -55,12 +55,15 @@
                 Style="{StaticResource RoundedImageButtonStyle}" Click="infoBtn_Click" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="47" Width="45">
             <Image Source="/Resources/infoIcon.png" Width="35" Height="35" />
         </Button>
-    
-        
-        <ProgressBar Name="progressBar" Visibility="Hidden"
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0">
+            <Label Name="loadingLbl" Visibility="Hidden" Grid.Row="2" Grid.Column="1" Content="{DynamicResource loading}" Style="{StaticResource LabelH2StyleWhite}" FontSize="18" Margin="0 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ProgressBar Name="progressBar" Visibility="Hidden"
                      IsIndeterminate="True" Foreground="White"
                      Style="{StaticResource MaterialDesignCircularProgressBar}" 
-                     Value="0" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50 0 0 0"/>
-        <Label Name="loadingLbl" Visibility="Hidden" Grid.Row="2" Grid.Column="1" Content="{DynamicResource loading}" Style="{StaticResource LabelH2StyleWhite}" FontSize="18" Margin="-50 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                     Value="0" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0"/>
+        
+        </StackPanel>
     </Grid>
 </Window>

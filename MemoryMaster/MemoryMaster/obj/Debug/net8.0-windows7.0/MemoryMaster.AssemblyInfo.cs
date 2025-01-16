@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MemoryMaster")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37e2db817abe382d533c99415a42e3060a32b69a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9059597b14564f45ecadfbb37bb535258a4df68c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MemoryMaster")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MemoryMaster")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
