@@ -136,6 +136,7 @@ namespace MemoryMaster.Pages
             string millisString = millis < 10 ? "0" + millis : "" + millis;
 
             timeLbl.Content = $"{minutesString}:{secondsString},{millisString}";
+            scoreLbl.Content = $"{score}";
         }
 
         private async void StartBackgroundTimer()
@@ -278,7 +279,8 @@ namespace MemoryMaster.Pages
 
                     double timeFactor = 1.0 / (elapsed.TotalSeconds + 1);
 
-                    
+                    countCorrect++;
+
                     int scoreIncrement =
                         (int)(baseScoreIncrement * timeFactor * 
                         (countCorrect * correctFactor - countIncorrect * incorrectFactor));
@@ -286,8 +288,7 @@ namespace MemoryMaster.Pages
                         scoreIncrement = 0;
 
                     score += scoreIncrement;
-                    
-                    countCorrect++;
+
                     countIncorrect = 0;
                 }
                 else
@@ -318,7 +319,7 @@ namespace MemoryMaster.Pages
 
 
 
-            scoreLbl.Content = score;
+            scoreLbl.Content = score+"";
             if (countCorrect == levelInfo.Base64Images.Count)
             {
                 StopBackgroundTimer();

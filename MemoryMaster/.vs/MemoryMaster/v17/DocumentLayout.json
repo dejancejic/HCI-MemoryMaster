@@ -3,7 +3,27 @@
   "WorkspaceRootPath": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|c:\\users\\dejan\\documents\\interakcija covjek racunar\\hci projektni zadatak 2\\memorymaster\\memorymaster\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|c:\\users\\dejan\\documents\\interakcija covjek racunar\\hci projektni zadatak 2\\memorymaster\\memorymaster\\pages\\levelpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|solutionrelative:memorymaster\\pages\\levelpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\memorymaster\\pages\\levelpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|solutionrelative:memorymaster\\pages\\levelpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\memorymaster\\pages\\addlevelpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|solutionrelative:memorymaster\\pages\\addlevelpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\memorymaster\\resources\\dictionary-sr.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|solutionrelative:memorymaster\\resources\\dictionary-sr.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\memorymaster\\resources\\dictionary-en.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|solutionrelative:memorymaster\\resources\\dictionary-en.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\memorymaster\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CA0A0DE8-19E5-4A94-ACA6-C936DCE64273}|MemoryMaster\\MemoryMaster.csproj|solutionrelative:memorymaster\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -14,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +46,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LevelPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Pages\\LevelPage.xaml",
+              "RelativeDocumentMoniker": "MemoryMaster\\Pages\\LevelPage.xaml",
+              "ToolTip": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Pages\\LevelPage.xaml",
+              "RelativeToolTip": "MemoryMaster\\Pages\\LevelPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-28T10:23:33.592Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LevelPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Pages\\LevelPage.xaml.cs",
+              "RelativeDocumentMoniker": "MemoryMaster\\Pages\\LevelPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Pages\\LevelPage.xaml.cs",
+              "RelativeToolTip": "MemoryMaster\\Pages\\LevelPage.xaml.cs",
+              "ViewState": "AQIAAEUBAAAAAAAAAAArwBoBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T12:26:35.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddLevelPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Pages\\AddLevelPage.xaml.cs",
+              "RelativeDocumentMoniker": "MemoryMaster\\Pages\\AddLevelPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Pages\\AddLevelPage.xaml.cs",
+              "RelativeToolTip": "MemoryMaster\\Pages\\AddLevelPage.xaml.cs",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAowIgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-20T22:55:37.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dictionary-sr.xaml",
+              "DocumentMoniker": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Resources\\Dictionary-sr.xaml",
+              "RelativeDocumentMoniker": "MemoryMaster\\Resources\\Dictionary-sr.xaml",
+              "ToolTip": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Resources\\Dictionary-sr.xaml",
+              "RelativeToolTip": "MemoryMaster\\Resources\\Dictionary-sr.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-20T22:49:08.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Dictionary-en.xaml",
+              "DocumentMoniker": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Resources\\Dictionary-en.xaml",
+              "RelativeDocumentMoniker": "MemoryMaster\\Resources\\Dictionary-en.xaml",
+              "ToolTip": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\Resources\\Dictionary-en.xaml",
+              "RelativeToolTip": "MemoryMaster\\Resources\\Dictionary-en.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-20T22:40:36.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MemoryMaster\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\Dejan\\Documents\\Interakcija covjek racunar\\HCI Projektni zadatak 2\\MemoryMaster\\MemoryMaster\\MainWindow.xaml",
               "RelativeToolTip": "MemoryMaster\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-16T00:02:47.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-16T00:02:47.027Z"
             }
           ]
         }

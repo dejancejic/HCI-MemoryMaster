@@ -145,7 +145,7 @@ namespace MemoryMaster.Pages
                 MessageBox.Show((string)FindResource("notEnoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
                 return;
             }
-            if (list.Count == App.maxImages)
+            if (list.Count > App.maxImages)
             {
                 MessageBox.Show((string)FindResource("enoughImages"), (string)FindResource("errorText"), MessageBoxButton.OK);
                 return;
@@ -201,7 +201,7 @@ namespace MemoryMaster.Pages
                 return;    
             }
 
-            MessageBox.Show((string)FindResource("levelAdded"), (string)FindResource("errorText"), MessageBoxButton.OK);
+            MessageBox.Show((string)FindResource("levelAdded"), (string)FindResource("success"), MessageBoxButton.OK);
             this.Close();
         }
 

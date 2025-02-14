@@ -55,6 +55,7 @@ namespace MemoryMaster.Pages
         private void PlayLevelBtnClick(object sender, RoutedEventArgs e)
         {
             int index = CalculateIndex();
+            if(index!=-1)
             NavigateNextPage(new LevelPage(levelInfo: levelsList[index],
                 scoresList[index],levelsList, scoresList,true));
         }
@@ -258,6 +259,8 @@ namespace MemoryMaster.Pages
                    IOUtil.WriteData(scoresList, myLevel: true);
 
                     IOUtil.WriteData(levelsList, myLevel: true);
+
+                    MessageBox.Show((string)FindResource("deletedLevel"), (string)FindResource("success"), MessageBoxButton.OK);
                 }
                 catch (Exception)
                 {
